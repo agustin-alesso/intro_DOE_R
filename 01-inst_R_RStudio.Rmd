@@ -1,7 +1,5 @@
 # Empezando con R y RStudio
 
-## ¿Qué es R y RStudio?
-
 ```{r, echo = F, message=F}
 require(knitr)
 ```

@@ -4,6 +4,20 @@ bookdown::pdf_book:
   latex_engine: xelatex
   citation_package: natbib
   keep_tex: yes
-bookdown::tufte_html_book:
-    toc: yes
-    css: toc.css
+bookdown::gitbook:
+ config:
+    toc:
+      collapse: subsection
+      scroll_highlight: yes
+      before: null
+      after: null
+    toolbar:
+      position: fixed
+    edit : null
+    download: yes
+    search: yes
+    fontsettings:
+      theme: white
+      family: sans
+      size: 2
+    sharing: null
