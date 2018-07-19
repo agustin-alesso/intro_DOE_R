@@ -13,16 +13,20 @@ description: "Material complementario para el dictado del curso _Diseño de Expe
 
 # Introducción {-}
 
-Este pequeño libro tiene como objetivo servir como material de apoyo al curso de Diseños de Experimentos de la Maestría de Cultivos Intensivos de la FCA-UNL. En el se desarrollará 
+Este pequeño libro tiene como objetivo servir como material introductorio al diseño y análisis estadístico de experimentos utilizando el software R como soporte para cálculos.  
+Qué cubre?
 
 Introducción a R/Rstudio
 Repaso de estadística básica
 Principios de diseño
 Diseǹos más empleados
 
-Al final del libro se espera que Ud. 
+Al final del libro se espera que el lector 
 
-- Reconozca la importancia del enfoque estadístico para el diseño de experimentos
+- Reconozca la importancia del enfoque estadístico para el diseño de experimentos.
+
 - Tenga un sólido entendimiento de los principales métodos utilizados para el análisis de datos provenientes de experimentos diseñados.
+
 - Desarrolle destrezas mínimas para utilizar el paquete estadístico R y el entorno de trabajo RStudio.
+
 - Sepa interpretar los resultados de los análisis estadísticos en contexto de las ciencias biológicas y agrícolas.
