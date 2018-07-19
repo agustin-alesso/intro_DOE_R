@@ -1,0 +1,309 @@
+# Aspectos básicos del lenguaje R: domando a la bestia
+
+## Operadores matemáticos
+
+En **R** las operaciones matemáticas básicas: suma (`+`), resta (`-`), división (`/`), producto (`*`) y potencia (`^`) se realizan usando los símbolos convencionales:
+
+Por ejemplo, $1 + \left( 3 \times 4 + \dfrac{5 -2}{3} \right)^2$ en **R** es:
+
+```{r}
+1 + (3 * 4 + (5 - 2)/3)^2
+```
+
+## Operadores lógicos
+
+**R** permite evaluar expresiones lógicas: igual (`==`), distinto (`!=`), mayor que (`>`), menor que (`<`), mayor o igual que (`>=`), menor o igual que (`<=`). El resultado es `TRUE` (verdadero) o `FALSE` (falso)
+
+```{r}
+# 3 es igual a 4?
+3 == 4
+
+# 5 es mayor o igual 3?
+5 >= 3
+
+# 2 es distinto que 2.5
+2 != 2.5
+```
+
+También se pueden combinar con los operadores _intersección_ (`&`), _unión_ (`|`) y _negación_ (`!`)
+
+```{r}
+# Devuelve FALSE ya que las dos condiciones no se cumplen a la vez
+4 == 4 & 5 == 6
+
+# Devuelve TRUE ya que una de la dos condiciones se cumple
+4 == 4 | 5 == 6
+```
+
+O con operaciones matemáticas...
+
+```{r}
+4 * 2 == 8
+```
+
+En este caso primero evalúa `4 * 2` y luego compara el resultado con `8`
+
+## Variables y objetos
+
+En **R** practicamente todo puede almacenarse en un _objeto_, es decir, un espacio de la memoria asignado a almacenar información: una cifra, un conjunto de números, el resultado de un análisis, etc. También se denomina _variables_ ya que su contenido puede cambiar. Con el simbolo `<-` o bien `=` se pueden crear objetos o variables asignándoles información (números, letras, resultados de operaciones, etc) y para luego recuperarla y utilizarla en otros cálculos.
+
+```{r}
+# Crea la variable x y le asgina el valor 2
+x <- 2
+x
+
+# Operación con variables
+2 * x
+
+# Usar variables para definir nuevas variables
+y <- 2 * x +1
+y
+```
+
+Aclaración: los nombres de las variables no deben empezar con números ni contener espacios. No pueden usarse operadores en los nombres pero puede usarse `.` o `_`. 
+
+```{r, eval = F}
+# Mal
+2x <- 3
+mi variable <- 3
+
+# Bien
+x_2 <- 3
+x.2 <- 3
+x2 <- 3
+```
+
+También **R** es sensibles a mayúsculas
+
+```{r}
+# Definir 'A' y 'a'
+A <- 3
+a <- 5
+
+# Verificar si 'A' y 'a' son lo mismo
+A == a
+```
+
+## Funciones y argumentos
+
+Las funciones dentro de **R** tienen la siguiente forma: `nombre_funcion(arg1, arg2, ...)`, donde `arg` son los argumentos que toma cada función. Algunos argumentos toman valores por defecto otros hay que declararlos. 
+
+Por ejemplo la función `mean()` tiene los argumentos:
+
+- `x` para indicar el vector numérico sobre el cual queremos calcular el promedio
+- `trim` para indicar la proporción de valores extremos excluir del cálculo (media truncada)
+- `na.rm` para indicar si queremos o no excluir los valores `NA`.
+
+```{r}
+# Media truncada de 100 valores aleatorios
+y <- runif(100)
+
+# Indicando los argumentos
+mean(x = y, trim = 0.1)
+
+# Sin indicar los argumentos
+mean(y, 0.1)
+```
+
+En este último caso, el orden de los argumentos es clave ya que **R** asigna los valores en función de la posición
+
+## Vectores
+
+Son los objetos más simples a partir de los cuales se construyen otros tipos de objetos. Se crean utilizando la función `c()` para "combinar" **datos del mismo tipo**.
+
+```{r}
+x <- c(13, 45, 67, 45)
+x
+```
+
+Pueden contener un solo tipo de datos a la vez: _numérico_, _texto_, _lógico_. En el caso de mezcla de datos, **R** los va a _coaccionar_ al tipo de datos más simple. 
+
+Por ejemplo: si queremos crear un vector con 3 valores: lógico, numerico y texto, **R** va a asumir que todos los elementos son de tipo _texto_
+
+```{r}
+x <- c(TRUE, 34, "texto")
+x
+```
+
+Los vectores están indexados y se puede acceder a sus elementos usando el operador `[ ]` e indicando el número de orden. Por ejemplo:
+
+```{r}
+# 3er elemento del vector x
+x[3]
+```
+
+## Tipos de datos
+
+### Numéricos (`numeric`)
+
+Números racionales (enteros o con coma). Los números enteros se tratan como `numeric` a menos que se los convierta con `as.integer()`.
+
+```{r}
+x <- c(3, 4, 5)
+class(x)
+
+# Convertir a enteros
+y <- as.integer(x)
+class(y)
+```
+
+Los datos numéricos permiten todas las operaciones algebráicas
+
+```{r}
+# La media aritmética de x
+mean(x)
+```
+
+### Texto (`character`)
+
+Cadenas de texto o número delimitadas por comillas (simples o dobles). 
+
+```{r}
+x <- c("hola", '3', "estadística1")
+class(x)
+```
+
+Lógicamente, no se pueden realizar operaciones numéricas. Se pueden 
+
+### Lógicos (`logic`)
+
+Condición verdadero (`TRUE` o `T`) o falso (`FALSE` o `F`)
+
+```{r}
+logico <- c(T, F, T, TRUE, FALSE, F)
+logico
+```
+
+Ejemplo: ¿que números son mayores a 30?
+
+```{r}
+x <- c(23, 43, 21, 34, 56, 3, 23, 3)
+x > 30
+```
+
+### Otros
+
+Los valores faltantes se simbolizan en **R** con `NA`. Indican que debería haber in valor pero que está faltando
+
+```{r}
+x <- c(1, 2, 3, NA, 4)
+is.na(x)
+```
+
+A diferencia del `NA`, un valor de tipo `NULL` indica que no hay información y que tampoco se esperaba que la haya.
+
+```{r}
+x <- c(1, 2, 3, NULL, 4)
+x
+```
+
+Algunas operaciones matemáticas devuelven valores `NaN` cuando no están definidas, por ejemplo:
+
+```{r}
+0/0
+```
+
+O bien valores infinitos:
+
+```{r}
+1/0
+```
+
+## Estructura de datos
+
+### Matriz (`matrix`)
+
+Colección de vectores de igual longitud y mismo tipo de datos. Se crea con la función `matrix()`, o combinando filas o columnas de igual longitud con `rbind()` o `cbind()`.
+
+```{r}
+M <- matrix(c(1, 2, 3, 4, 5, 6), ncol = 2)
+M
+```
+
+Se puede indexar usando `[n, p]` donde `n` es el numero de fila y `p` numero de columna.
+
+```{r}
+# Elemento m12
+M[1,2]
+
+# Toda la columna 2
+M[, 2]
+```
+
+### Listas (`list`)
+
+Generalización de los vectores ya que los elementos pueden ser de igual o diferente tipo de datos
+
+```{r}
+l <- list(23, "hola", TRUE)
+l
+```
+
+Se pueden indexar usando `[[ ]]` 
+
+```{r}
+# El segundo elemento de l
+l[[2]]
+```
+
+Cada elemento a su vez puede ser cualquier objeto de los vistos anteriormente.
+
+### Hoja de datos (`data.frame`)
+
+Similares a las matrices pero cada columna puede ser de un tipo de dato diferente. Útil para guardar datos donde cada fila es un caso y cada columna una variable.
+
+```{r}
+trigo <- data.frame(
+  lote = 1:5,
+  rendimiento = c(34, 36, 40, 28, 31), 
+  variedad = c('Escorpion', 'Escorpion', 'Yarara', 'Baguette 11', 'Tijetera')
+)
+trigo
+```
+
+Se puede acceder a cada columna (vectores) con `$`
+
+```{r}
+# Variedades
+trigo$variedad
+```
+
+O indexar con indexar con `[ ]`
+
+```{r}
+# El bombre de la varidedad de la fila 2
+trigo[2, 3]
+
+# Todos los datos de la fila 2
+trigo[2, ]
+
+# Lotes con rendimiento mayor a 35 qq/ha
+trigo[trigo$rendimiento > 35, ]
+```
+
+### Factores (`factor` y `ordered`)
+
+Si los elementos de vector de tipo texto (`character`) representan niveles nominales (categorías), el objeto puede convertirse a `factor` de modo tal que los valores son reemplazados por un número que se asocia a los niveles del factor (ordenados alfabeticamente, a menos que se indique otra cosa).
+
+```{r}
+x <- c('bajo', 'medio', 'alto', 'alto', 'bajo', 'bajo')
+x
+
+# factor nominal
+y <- factor(x)
+y
+as.numeric(y)
+```
+
+En el ejemplo anterior, los valores eran `bajo`, `medio` y `alto`. Mediante la función estos valores pasaron al atributo `levels` y los datos fueron reemplazados por los identificadores `2`, `3`, y `1`.
+
+Cuando los niveles tienen una jerarquía u orden, se puede especificar este tipo de relación mediante `as.ordered()` que convierte el `factor` en `ordered` agregando la relación entre los niveles
+
+```{r}
+# Factor ordinal
+z <- factor(x, levels = c('bajo', 'medio', 'alto'))
+z <- as.ordered(z)
+z
+```
+
+Los factores como cualquier vectore tambien se indexan con `[ ]`.
