@@ -1,0 +1,28 @@
+--- 
+title: "Introducción al diseño y análisis de experimentos usando R"
+author: "Agustín Alesso"
+site: bookdown::bookdown_site
+output: bookdown::pdf_book
+documentclass: book
+classoption: a4paper
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "Material complementario para el dictado del curso _Diseño de Experimentos_ de la Maestría de Cultivos Intensivos de la FCA-UNL"
+---
+
+# Introducción {-}
+
+Este pequeño libro tiene como objetivo servir como material de apoyo al curso de Diseños de Experimentos de la Maestría de Cultivos Intensivos de la FCA-UNL. En el se desarrollará 
+
+Introducción a R/Rstudio
+Repaso de estadística básica
+Principios de diseño
+Diseǹos más empleados
+
+Al final del libro se espera que Ud. 
+
+- Reconozca la importancia del enfoque estadístico para el diseño de experimentos
+- Tenga un sólido entendimiento de los principales métodos utilizados para el análisis de datos provenientes de experimentos diseñados.
+- Desarrolle destrezas mínimas para utilizar el paquete estadístico R y el entorno de trabajo RStudio.
+- Sepa interpretar los resultados de los análisis estadísticos en contexto de las ciencias biológicas y agrícolas.

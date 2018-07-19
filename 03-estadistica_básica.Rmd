@@ -1,0 +1,3 @@
+# Revisión de estadística básica
+
+En este capítulo se revisarán algunos conceptos estadísticos básicos que son fundamentales para el diseño y análisis estadísticod de experimentos 
