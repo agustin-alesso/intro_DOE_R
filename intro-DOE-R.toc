@@ -1,0 +1,15 @@
+\babel@toc {spanish}{}
+\contentsline {chapter}{Introducción}{5}{chapter*.2}
+\contentsline {chapter}{\numberline {1}Empezando con R y RStudio}{7}{chapter.1}
+\contentsline {section}{\numberline {1.1}¿Cómo instalar R y RStudio?}{8}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Instalación de R}{8}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Instalación de RStudio}{9}{subsection.1.1.2}
+\contentsline {section}{\numberline {1.2}Primera sesión en RStudio}{9}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Crear un Proyecto}{10}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Modo interactivo: la consola}{11}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}Creación de un script}{11}{subsection.1.2.3}
+\contentsline {chapter}{\numberline {2}Introducción a R}{15}{chapter.2}
+\contentsline {section}{\numberline {2.1}¿Cómo instalar R y RStudio?}{16}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Instalación de R}{16}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Instalación de RStudio}{17}{subsection.2.1.2}
+\contentsline {chapter}{\numberline {3}Revisión de estadística básica}{23}{chapter.3}

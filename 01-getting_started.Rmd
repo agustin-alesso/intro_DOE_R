@@ -12,33 +12,33 @@ R es un lenguaje y entorno para el procesamiento, visualización y análisis est
 include_graphics('images/rproject.png', auto_pdf = T)
 ```
 
-Hoy en día, R es la _lingua franca_ del procesamiento y análisis estadístico de datos, tanto en el ámbito académico como comercial dado que es gratiuto, multiplataforma, de código abierto (_open source_, liberado con licencia GNU/GPL).  Esto lo convierte en un software muy potente y que expresa el estado del arte de los métodos estadísticos ya que la comunidad de usuarios contribuya constantemente con funcionalidades e implementaciones de nuevos métodos y técnicas estadísticas.
+Hoy en día, R es la _lingua franca_ del procesamiento y análisis de datos, tanto en el ámbito académico como comercial dado que es gratiuto, multiplataforma, de código abierto (_open source_, liberado con licencia GNU/GPL). Esto y el ecosistema de paquetes contribuidos por la comunidad de usuarios lo convierte en un software muy potente ya que expresa el estado del arte de los métodos estadísticos. 
 
-Al igual que su antecesor S, la flexibilidad y potencia de R se basa en su interfaz de comandos (CLI, del inglés _command line interface_ ) que permite la ejecución de comandos de manera interactiva (en consola) o automática mediante scritps. 
+Al igual que su antecesor S, la flexibilidad y potencia de R se basa en su interfaz de comandos (CLI, del inglés _command line interface_ ) que permite la ejecución de comandos de manera interactiva (en consola) o estructurada mediante scritps. 
 
 ```{r, echo = F, fig.cap = 'Consola o terminal de Windows, Mac OS X y Linux corriendo la última versión estable de R', out.width = '75%', fig.align = 'center', fig.pos= 'h', out.extra=''} 
 include_graphics(c('images/consola_linux.png', 'images/consola_windows.png'), auto_pdf = T)
 ```
 
-Existen algunos desarrollos de interfases gráficas (GUIs, del inglés _graphical user interface_), e.g. RCommander, Deducer, que ofrecen la posibilidad de, mediante menues y botones dedicados, ejecutar algunos análisis relativamente simples minimizando la necesidad de escribir código. 
+Existen algunos desarrollos de interfases gráficas (GUIs, del inglés _graphical user interface_), e.g. RCommander, Deducer, etc., que ofrecen la posibilidad de, mediante menues y botones dedicados, ejecutar algunos análisis relativamente simples minimizando la necesidad de escribir código.
 
 ```{r, echo = F, fig.cap = 'Interfase de R Commander', out.width = '75%', fig.align = 'center', fig.pos= 'h', out.extra=''} 
 include_graphics('images/RcmdrBASE.png', auto_pdf = T)
 ```
 
-Un enfoque intermedio se obtiene usando los entornos de desarrollo integrados (IDE por sus siglas en inglés _integrated development environments_) que ofrecen menúes o funciones asistentes que facilitan algunas tareas generales (abrir archivos, carga de datos, exportar gráficos y resultados) pero dejan la codificación del análisis estadístico en manos del usuario mediante la ejecución de scripts. Entre estas alternativas se destaca RStudio ( [www.rstudio.com](www.rstudio.com) ) el cual también es de código abierto (licencia GNU/GPL), multiplataforma y ofrece una versión gratuita.
+Los entornos de desarrollo integrados (IDE por sus siglas en inglés _integrated development environments_) ofrecen un enfoque intermedio ya que los menúes o funciones asistentes facilitan algunas tareas generales (abrir archivos, carga de datos, exportar gráficos y resultados, etc.) pero dejan la codificación y ejecución del análisis estadístico en manos del usuario. Entre estas alternativas se destaca RStudio ( [www.rstudio.com](www.rstudio.com) ) el cual también es de código abierto (licencia GNU/GPL), multiplataforma y ofrece una versión gratuita.
 
 ```{r, echo = F, fig.cap = 'Interfase de RStudio', out.width = '75%', fig.align = 'center', fig.pos= 'h', out.extra=''} 
-include_graphics('images/RStudio.png', auto_pdf = T)
+include_graphics('images/Rstudio.png', auto_pdf = T)
 ```
 
 ## ¿Cómo instalar R y RStudio?
 
-R y RStudio se instalan por separado. Si bien R puede funcionar sin RStudio, éste necesita que al menos una versión de R esté instalada en el sistema. Ambos softwares son multiplataforma y pueden ser ejecutados en sistemas operativos Windows, OS X  y Linux. En la página [https://cloud.r-project.org/](https://cloud.r-project.org/) hay instrucciones específicas para cada plataforma. A continuación se describe el procedimiento para instalar R y RStudio bajo Windows.
+R y RStudio se instalan por separado. R puede funcionar sin RStudio, en cambio éste necesita que al menos una versión de R esté instalada en el sistema. Ambos softwares son multiplataforma y pueden ser ejecutados en sistemas operativos Windows, OS X  y Linux. En la página [https://cloud.r-project.org/](https://cloud.r-project.org/) hay instrucciones específicas para cada plataforma. A continuación se describe el procedimiento para instalar R y RStudio bajo Windows.
 
 ### Instalación de R
 
-1) Descargar el archivo instalador correspondiente a la última versión estable de R desde el CRAN[^1] (del inglés, _Comprenhensive R Archive Network_) visitando el siguiente [link](https://cloud.r-project.org/bin/windows/base/release.htm) [^2]. 
+1) Descargar el archivo instalador correspondiente a la última versión estable de R desde el CRAN[^1] (del inglés, _Comprenhensive R Archive Network_) visitando el siguiente [link](https://cloud.r-project.org/bin/windows/base/release.htm). 
 
 ```{r, echo = F, fig.cap = 'Página de descaga de R', out.width = '75%', fig.align = 'center', fig.pos= 'h', out.extra=''} 
 include_graphics('images/choose_OS.png', auto_pdf = T)
@@ -46,11 +46,11 @@ include_graphics('images/choose_OS.png', auto_pdf = T)
 
 [^1]: CRAN se compone de un conjunto de servidores espejo distribuidos alrededor del mundo que tienen copias de R y sus paquetes. No es necesario escojer el espejo más cercano ya que el espejo nube (https://cloud.r-project.org) automáticamente determina de que servidor conviene realizar la descarga.
 
+2) Ejecutar el archivo descargado [^2] y seguir el asistente de instalación con todas las opciones por defecto. 
+
 [^2]: Al momento de escribir estas instrucciones la última versión estable de R era la 3.5.1 "Feather Spray", por lo tanto el link apuntará al archivo `R-3.5.1-win.exe`. 
 
-2) Una vez finalizada la descarga ejecutar el archivo `.exe` y seguir el asistente de instalación con todas las opciones por defecto. 
-
-3) Si la instalación ha sido exitosa el el menú _Inicio > Todos los Programas > R_ se encontrarán dos accesos directos `R i386 3.5.1` y `R x64 3.5.1` los cuales permiten correre la interfase de usuario mínima que viene con la versión de R para Windows.
+3) Si la instalación ha sido exitosa en el menú _Inicio_ podrá encontrarse la carpeta _R_ que contendrá dos accesos directos a la interfase de usuario mínima que viene con la versión de R para Windows.
 
 ```{r, echo = F, fig.cap = 'R GUI para Windows', out.width = '75%', fig.align = 'center', fig.pos= 'h', out.extra=''} 
 include_graphics('images/rgui.png', auto_pdf = T)
@@ -58,23 +58,23 @@ include_graphics('images/rgui.png', auto_pdf = T)
 
 ### Instalación de RStudio
 
-1) Ir al sitio web de descarga de RStudio: [https://www.rstudio.com/products/rstudio/download/](https://www.rstudio.com/products/rstudio/download/)
+1) Ir al sitio web de descarga de RStudio [https://www.rstudio.com/products/rstudio/download/](https://www.rstudio.com/products/rstudio/download/)
 
 ```{r, echo = F, out.width = "75%", fig.align = 'center', fig.cap = 'Página principal de RStudio', fig.pos= 'h', out.extra=''}
 knitr::include_graphics("images/rstudio_download.png", auto_pdf = T)
 ```
 
-2) Descargar el archivo de instalación correspondiente a nuestra plataforma o sistema operativo. Por ejemplo: para Windows iniciará la descarga del archivo `RStudio-1.1.453.exe`
+2) Descargar el archivo de instalación correspondiente a nuestra plataforma o sistema operativo. 
 
 ```{r, echo = F, out.width = "75%", fig.align = 'center', fig.cap = 'Página principal de RStudio', fig.pos= 'h', out.extra=''}
 knitr::include_graphics("images/rstudio_download_OS.png", auto_pdf = T)
 ```
 
-3) Una vez finalizada la descarga ejecutar el archivo `.exe` [^3] `RStudio-1.1.453.exe` y seguir el asistente de instalación con todas las opciones por defecto.
+3) Ejecutar el archivo `.exe` [^3] y seguir el asistente de instalación con todas las opciones por defecto.
 
-[^3]: Al momento de escribir estas instrucciones la última versión estable de RStudio era la 1.1.453 por lo tanto el link apuntará al archivo `RStudio-1.1.453.exe`. 
+[^3]: Al momento de escribir estas instrucciones la última versión estable de RStudio era  `RStudio-1.1.453.exe`. 
 
-4) Si la instalación ha sido exitosa el el menú _Inicio > Todos los Programas > RStudio_ se encontrará el acceso directo a RStudio el cual, mediante el menu contextual (botón derecho del ratón) puede enviarse al Escritorio como acceso directo o bien anclar al menu de Inicio o barra de acceso rápido.
+4) Si la instalación ha sido exitosa en el menú _Inicio_ dentro de la carpeta _RStudio_  se encontrará el acceso directo a RStudio el cual, mediante el menu contextual (botón derecho del ratón) puede enviarse al Escritorio como acceso directo o bien anclar al menu de Inicio o barra de acceso rápido.
    
 Ahora sí, ya tenemos listo R y RStudio para empezar a trabajar!!
 
@@ -97,25 +97,9 @@ include_graphics("images/RStudio_paneles.png", auto_pdf = T)
 
 4. **Files/Plots/Packages/Help/Viewer**. Allí se puede manejar los archivos del directorio de trabajo, visualizar los gráficos generados en **R** con posibilidad de exportarlos en varios formatos, administrar los paquetes o complementos, buscar o explorar el manual de ayuda y previsualizar archivos HTML.
 
-### Crear un Proyecto
+### La consola
 
-Antes de comenzar es conveniente entender el concepto de _directorio de trabajo_ y _Proyecto_. R trabaja con un directorio de trabajo o _working directory_ que la dirección que figura en el titulo del panel **Console**. A menos que se especifique lo contrario, se asume que los archivos de entrada o salida se ubican en dicha carpeta. Esto se puede modificar en cualquier momento con la función `setwd()`. 
-
-RStudio extiende esta característica a través de los proyectos o _projects_. De este modo, cada proyecto (una carpeta) contiene un archivo `*.RProj` el cual contiene información sobre la carpeta de trabajo y algunas configuraciones específicas. Esto permite organizar los archivos de datos, las salidas, los scripts, etc., dentro de un directorio de trabajo (_working directory_) y volver a ellos de manera más rápida, eficiente, y portable.
-
-Para crear un proyecto: 
-
-1. Ir a `File > New project... ` o bien el ícono `New project`.
-
-2. Luego seleccionar `New directory` y `Empty project`
-
-3. Una vez en el cuadro de diálogo `Create new project`.  En `Directory name` ingresar el nombre del proyecto (e.g. `DOE`) que será a su vez el nombre de la carpeta que RStudio va a crear por nosotros. Luego en `Create project as a subdirectory of` vamos indicar _donde_ queremos que Rstudio cree la carpeta.  
-
-4. Si todo sale bien, se crea la carpeta con el nombre que indicamos y dentro de ésta un archivo con extensión `.Rproj`
-
-### Modo interactivo: la consola
-
-La línea de comando o **consola** es el modo interactivo mediante el cual podemos ejecutar comandos directamente en el intérprete de R. El símbolo `>` indica que **R** está disponible esperando una orden. Si la orden no está completa el símbolo se transoforma en `+`. Por ejemplo: `2 + 2`
+La línea de comandos o **consola** es el modo interactivo mediante el cual podemos ejecutar comandos directamente en el intérprete de R. El símbolo o _prompt_ `>` indica que R está disponible esperando una orden. Si la orden no está completa el símbolo se transforma en `+`. Por ejemplo: `2 + 2`
 
 ```{r}
 2 + 2
@@ -127,15 +111,9 @@ Otro ejemplo: el promedio de los números `1`, `3` y `4`
 (1 + 3 + 4) / 3
 ```
 
-El simbolo `#` indica que lo que sigue es un comentario y por lo tanto debe ignorarse
+### El script
 
-```{r}
-# Esto es un comentario
-```
-
-### Creación de un script
-
-El **Editor de Scripts** (panel 1) es un editor de texto que está conectado con la **consola** y gracias a algunas funcionalidades facilitan la edición de código
+El **editor de scripts** (panel 1) es un editor de texto plano que está conectado con la consola (panel 2) y, gracias a algunas funcionalidades (resaltado de sinbtaxis, numeración de lineas, plegado de código, autocompletado, etc) facilitan la edición de código para programar los comandos a ejecutar por R. 
 
 Para crear un nuevo script se puede usar uno de los siguientes métodos:
 
@@ -143,34 +121,70 @@ Para crear un nuevo script se puede usar uno de los siguientes métodos:
 - Usar el atajo de teclado `CTRL + SHIFT + N`
 - Clickear en el primer ícono de la barra de menu
 
-![](images/menu_bar.png)
-
+```{r, echo = F, out.width = "75%", fig.align = 'center', fig.cap = 'Barra de herramientas de RStudio', fig.pos= 'h', out.extra=''}
+include_graphics("images/menu_bar.png", auto_pdf = T)
+```
 
 Una vez abierto el script en blanco, se pueden empezar a escribir los comandos de R, por ejemplo:
 
 ```{r, eval = F}
-# Clásico mensaje "Hola mundo!"
-"Hola Mundo!"
-
 # Calcular el promedio de estos números
 (1 + 3 + 4) / 3
+
+"Hola Mundo!" # Clásico mensaje "Hola mundo!"
 ```
 
-Para ejecutar estos comandos en la consola hay que posicionarse en la línea o seleccionar las líneas que se quieren ejecutar y luego:
+Para ejecutar estos comandos en la consola hay que posicionarse en la línea o seleccionar las líneas que se quieren ejecutar y luego algunas de las siguientes opciones:
 
 - Ir al menu `Code > Run Selected Line(s)`
 - Usar el atajo de teclado `CTRL + ENTER` o `CTRL + R`
 - Usar el ícono `Run` de la barra de herramientas de la pestaña del script
 
+```{r, echo = F, out.width = "75%", fig.align = 'center', fig.cap = 'Barra de herramientas del panel Editor', fig.pos= 'h', out.extra=''}
+include_graphics("images/menu_run.png", auto_pdf = T)
+```
+
+El simbolo `#` indica que lo que sigue es un **comentario** y por lo tanto R lo ignora cuando es enviado a la consola. Los comentarios pueden ir solos en una línea separada o bien dentro de una línea que tenga algún comando. Si bien no son necesarios para correr el código, los comentarios son muy útiles para estructurar el 
+script y hacer anotaciones para que otros, o nosotros en un futuro, entiendan lo que hace esa parte del script.
+
 Para guardar el script:
 
-- Ir al menu `File > Save`
-- Usar el atajo de teclado `CTRL + S`
-- Usar el ícono con el diskette de la barra de herramientas global o de la pestaña del script activo.
+1. Ir al menu `File > Save` o usar el atajo de teclado `CTRL + S` o bien el ícono con el diskette de la barra de herramientas global o de la pestaña del script activo.
+
+2. Elegir la carpeta destino y el nombre de archivo. Automáticamente se agregará la extensión `.R` que corresponde a los scripts.
+
+
+### Proyecto
+
+R trabaja con un directorio de trabajo o _working directory_ que es la dirección o _path_ que figura en el titulo del panel **Console**. Por defecto es el directorio base del usuario que depende de cada plataforma. En linux es el `/home/usuario` en cambio en Windows es `C:/Users/usuario/Documents`. A menos que se especifique lo contrario, se asume que los archivos de entrada o salida se ubican en dicha carpeta. Esto se puede modificar en cualquier momento con la función `setwd()`. 
+
+RStudio extiende esta característica a través de los proyectos o _projects_. Cada proyecto es una carpeta o _folder_ que contienen un archivo `.RProj` con algunas configuraciones específicas. Al abrirlo en RStudio, automáticamente se cambia el directorio de trabajo a esta carpeta. Esto permite organizar los archivos de datos, las salidas, los scripts, etc., dentro de un directorio de trabajo (_working directory_) y volver a ellos de manera más rápida, eficiente, y portable.
+
+Para crear un proyecto: 
+
+1. Ir a `File > New project... ` o bien el ícono `Create project` de la barra de herramientas. 
+
+```{r, echo = F, out.width = "75%", fig.align = 'center', fig.pos= 'h', out.extra=''}
+include_graphics("images/new_project.png", auto_pdf = T)
+```
+
+2. Seleccionar `New Directory` y en `Project type` seleccionar `New project`.
+
+```{r, echo = F, out.width = "75%", fig.align = 'center', fig.pos= 'h', out.extra=''}
+include_graphics(c("images/new_project1.png", "images/new_project2.png"), auto_pdf = T)
+```
+
+3. Una vez en el cuadro de diálogo `Create new project` ingresar el nombre del proyecto (e.g. `DOE`) en `Directory name` que será a su vez el nombre de la carpeta que RStudio va a crear por nosotros. Luego en `Create project as a subdirectory of` indicar _donde_ queremos que Rstudio cree la carpeta.  
+
+```{r, echo = F, out.width = "75%", fig.align = 'center', fig.pos= 'h', out.extra=''}
+include_graphics("images/new_project3.png", auto_pdf = T)
+```
+
+4. Si todo sale bien, se crea la carpeta con el nombre que indicamos y dentro de ésta un archivo con extensión `.Rproj`
 
 ### Ayuda!!!
 
-Todas las funciones de R y sus paquetes adicionales vienen con documentación completa. Desde la consola se puede acceder usando la función `?` seguida del nombre de la función o bien `help("nombre")`
+Por último, y no menos importante, R y RStudio cuentan con un completo sistema de ayuda. Desde la consola se puede acceder usando la función `?` seguida del nombre de la función o bien `help("nombre")`
 
 ```{r}
 # Pedir ayuda de la función mean

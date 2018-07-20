@@ -21,3 +21,4 @@ bookdown::gitbook:
       family: sans
       size: 2
     sharing: null
+    highlight: tango
