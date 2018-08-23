@@ -1,7 +1,7 @@
-AuthUserFile ./.htpasswd
+AuthUserFile .htpasswd
 AuthType Basic
 AuthName "Protected Settings Page"
 
-<Files "./_book/index.html">
+<Files "index.html">
   Require valid-user
 </Files>
