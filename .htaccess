@@ -1,0 +1,7 @@
+AuthUserFile ./.htpasswd
+AuthType Basic
+AuthName "Protected Settings Page"
+
+<Files "mySettingsPage.html">
+  Require valid-user
+</Files>
