@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Introducción al diseño y análisis de experimentos usando R</title>
+  <title>Introducción al diseño y análisis estadístico de experimentos usando R</title>
   <meta name="description" content="Material complementario para el dictado del curso <em>Diseño de Experimentos</em> de la Maestría de Cultivos Intensivos de la FCA-UNL">
   <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
-  <meta property="og:title" content="Introducción al diseño y análisis de experimentos usando R" />
+  <meta property="og:title" content="Introducción al diseño y análisis estadístico de experimentos usando R" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Introducción al diseño y análisis de experimentos usando R" />
+  <meta name="twitter:title" content="Introducción al diseño y análisis estadístico de experimentos usando R" />
   
   <meta name="twitter:description" content="Material complementario para el dictado del curso <em>Diseño de Experimentos</em> de la Maestría de Cultivos Intensivos de la FCA-UNL" />
   
@@ -157,7 +157,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.7.4" data-path="aspectos-basicos-del-lenguaje-r.html"><a href="aspectos-basicos-del-lenguaje-r.html#factores-factor-y-ordered"><i class="fa fa-check"></i><b>2.7.4</b> Factores (<code>factor</code> y <code>ordered</code>)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html"><i class="fa fa-check"></i><b>3</b> Revisión de estadística básica</a></li>
+<li class="chapter" data-level="3" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html"><i class="fa fa-check"></i><b>3</b> Revisión de estadística básica</a><ul>
+<li class="chapter" data-level="3.1" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#que-es-la-estadistica"><i class="fa fa-check"></i><b>3.1</b> ¿Qué es la estadística?</a></li>
+<li class="chapter" data-level="3.2" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#variables"><i class="fa fa-check"></i><b>3.2</b> Variables</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#tipos-de-datos-1"><i class="fa fa-check"></i><b>3.2.1</b> Tipos de datos</a></li>
+<li class="chapter" data-level="3.2.2" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#escala-de-medicion"><i class="fa fa-check"></i><b>3.2.2</b> Escala de medición</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#poblacion-y-muestra"><i class="fa fa-check"></i><b>3.3</b> Población y muestra</a></li>
+<li class="chapter" data-level="3.4" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#estadistica-descriptiva"><i class="fa fa-check"></i><b>3.4</b> Estadística descriptiva</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#graficos"><i class="fa fa-check"></i><b>3.4.1</b> Gráficos</a></li>
+<li class="chapter" data-level="3.4.2" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#medidas-de-resumen"><i class="fa fa-check"></i><b>3.4.2</b> Medidas de resumen</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#distribuciones-directamente-la-normal-y-tcl"><i class="fa fa-check"></i><b>3.5</b> distribuciones (directamente la normal y TCL)</a></li>
+<li class="chapter" data-level="3.6" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#ic"><i class="fa fa-check"></i><b>3.6</b> IC</a></li>
+<li class="chapter" data-level="3.7" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#test-hipotesis"><i class="fa fa-check"></i><b>3.7</b> Test hipotesis</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -167,7 +181,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introducción al diseño y análisis de experimentos usando R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introducción al diseño y análisis estadístico de experimentos usando R</a>
           </h1>
         </div>
 
@@ -179,7 +193,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Capítulo 1</span> Empezando con R y RStudio</h1>
 <div id="que-es-r-y-rstudio" class="section level2">
 <h2><span class="header-section-number">1.1</span> ¿Qué es R y RStudio?</h2>
-<p>R es un lenguaje y entorno para el procesamiento, visualización y análisis estadístico de datos. Ha sido creado en 1993 por R. Gentleman y R. Ihaka, ambos científicos del Departamento de Estadística de la Universidad de Auckland (Nueva Zelanda). Actualmente su desarrollo y mantenimiento está a cargo del <em>R Core Team</em>. El sitio oficial del proyecto es <a href="www.r-project.org" class="uri">www.r-project.org</a></p>
+<p>R es un lenguaje y entorno para el procesamiento, visualización y análisis estadístico de datos. Ha sido creado en 1993 por R. Gentleman y R. Ihaka, ambos científicos del Departamento de Estadística de la Universidad de Auckland (Nueva Zelanda). Actualmente su desarrollo y mantenimiento está a cargo del <em>R Core Team</em>. El sitio oficial del proyecto es <a href="www.r-project.org">www.r-project.org</a></p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
 <img src="images/rproject.png" alt="Página oficial de R Project" width="75%"  />
 <p class="caption">
@@ -207,7 +221,7 @@ Figure 1.2: Consola o terminal de Windows, Mac OS X y Linux corriendo la última
 Figure 1.3: Interfase de R Commander
 </p>
 </div>
-<p>Los entornos de desarrollo integrados (IDE por sus siglas en inglés <em>integrated development environments</em>) ofrecen un enfoque intermedio ya que los menúes o funciones asistentes facilitan algunas tareas generales (abrir archivos, carga de datos, exportar gráficos y resultados, etc.) pero dejan la codificación y ejecución del análisis estadístico en manos del usuario. Entre estas alternativas se destaca RStudio ( <a href="www.rstudio.com" class="uri">www.rstudio.com</a> ) el cual también es de código abierto (licencia GNU/GPL), multiplataforma y ofrece una versión gratuita.</p>
+<p>Los entornos de desarrollo integrados (IDE por sus siglas en inglés <em>integrated development environments</em>) ofrecen un enfoque intermedio ya que los menúes o funciones asistentes facilitan algunas tareas generales (abrir archivos, carga de datos, exportar gráficos y resultados, etc.) pero dejan la codificación y ejecución del análisis estadístico en manos del usuario. Entre estas alternativas se destaca RStudio ( <a href="www.rstudio.com">www.rstudio.com</a> ) el cual también es de código abierto (licencia GNU/GPL), multiplataforma y ofrece una versión gratuita.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
 <img src="images/Rstudio.png" alt="Interfase de RStudio" width="75%"  />
 <p class="caption">
@@ -217,7 +231,7 @@ Figure 1.4: Interfase de RStudio
 </div>
 <div id="como-instalar-r-y-rstudio" class="section level2">
 <h2><span class="header-section-number">1.2</span> ¿Cómo instalar R y RStudio?</h2>
-<p>R y RStudio se instalan por separado. R puede funcionar sin RStudio, en cambio éste necesita que al menos una versión de R esté instalada en el sistema. Ambos softwares son multiplataforma y pueden ser ejecutados en sistemas operativos Windows, OS X y Linux. En la página <a href="https://cloud.r-project.org/" class="uri">https://cloud.r-project.org/</a> hay instrucciones específicas para cada plataforma. A continuación se describe el procedimiento para instalar R y RStudio bajo Windows.</p>
+<p>R y RStudio se instalan por separado. R puede funcionar sin RStudio, en cambio éste necesita que al menos una versión de R esté instalada en el sistema. Ambos softwares son multiplataforma y pueden ser ejecutados en sistemas operativos Windows, OS X y Linux. En la página <a href="https://cloud.r-project.org/">https://cloud.r-project.org/</a> hay instrucciones específicas para cada plataforma. A continuación se describe el procedimiento para instalar R y RStudio bajo Windows.</p>
 <div id="instalacion-de-r" class="section level3">
 <h3><span class="header-section-number">1.2.1</span> Instalación de R</h3>
 <ol style="list-style-type: decimal">
@@ -245,7 +259,7 @@ Figure 1.6: R GUI para Windows
 <div id="instalacion-de-rstudio" class="section level3">
 <h3><span class="header-section-number">1.2.2</span> Instalación de RStudio</h3>
 <ol style="list-style-type: decimal">
-<li>Ir al sitio web de descarga de RStudio <a href="https://www.rstudio.com/products/rstudio/download/" class="uri">https://www.rstudio.com/products/rstudio/download/</a></li>
+<li>Ir al sitio web de descarga de RStudio <a href="https://www.rstudio.com/products/rstudio/download/">https://www.rstudio.com/products/rstudio/download/</a></li>
 </ol>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-9"></span>
 <img src="images/rstudio_download.png" alt="Página principal de RStudio" width="75%"  />

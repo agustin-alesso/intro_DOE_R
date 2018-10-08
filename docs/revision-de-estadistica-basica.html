@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Introducción al diseño y análisis de experimentos usando R</title>
+  <title>Introducción al diseño y análisis estadístico de experimentos usando R</title>
   <meta name="description" content="Material complementario para el dictado del curso <em>Diseño de Experimentos</em> de la Maestría de Cultivos Intensivos de la FCA-UNL">
   <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
-  <meta property="og:title" content="Introducción al diseño y análisis de experimentos usando R" />
+  <meta property="og:title" content="Introducción al diseño y análisis estadístico de experimentos usando R" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Introducción al diseño y análisis de experimentos usando R" />
+  <meta name="twitter:title" content="Introducción al diseño y análisis estadístico de experimentos usando R" />
   
   <meta name="twitter:description" content="Material complementario para el dictado del curso <em>Diseño de Experimentos</em> de la Maestría de Cultivos Intensivos de la FCA-UNL" />
   
@@ -157,7 +157,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.7.4" data-path="aspectos-basicos-del-lenguaje-r.html"><a href="aspectos-basicos-del-lenguaje-r.html#factores-factor-y-ordered"><i class="fa fa-check"></i><b>2.7.4</b> Factores (<code>factor</code> y <code>ordered</code>)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html"><i class="fa fa-check"></i><b>3</b> Revisión de estadística básica</a></li>
+<li class="chapter" data-level="3" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html"><i class="fa fa-check"></i><b>3</b> Revisión de estadística básica</a><ul>
+<li class="chapter" data-level="3.1" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#que-es-la-estadistica"><i class="fa fa-check"></i><b>3.1</b> ¿Qué es la estadística?</a></li>
+<li class="chapter" data-level="3.2" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#variables"><i class="fa fa-check"></i><b>3.2</b> Variables</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#tipos-de-datos-1"><i class="fa fa-check"></i><b>3.2.1</b> Tipos de datos</a></li>
+<li class="chapter" data-level="3.2.2" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#escala-de-medicion"><i class="fa fa-check"></i><b>3.2.2</b> Escala de medición</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#poblacion-y-muestra"><i class="fa fa-check"></i><b>3.3</b> Población y muestra</a></li>
+<li class="chapter" data-level="3.4" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#estadistica-descriptiva"><i class="fa fa-check"></i><b>3.4</b> Estadística descriptiva</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#graficos"><i class="fa fa-check"></i><b>3.4.1</b> Gráficos</a></li>
+<li class="chapter" data-level="3.4.2" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#medidas-de-resumen"><i class="fa fa-check"></i><b>3.4.2</b> Medidas de resumen</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#distribuciones-directamente-la-normal-y-tcl"><i class="fa fa-check"></i><b>3.5</b> distribuciones (directamente la normal y TCL)</a></li>
+<li class="chapter" data-level="3.6" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#ic"><i class="fa fa-check"></i><b>3.6</b> IC</a></li>
+<li class="chapter" data-level="3.7" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#test-hipotesis"><i class="fa fa-check"></i><b>3.7</b> Test hipotesis</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -167,7 +181,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introducción al diseño y análisis de experimentos usando R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introducción al diseño y análisis estadístico de experimentos usando R</a>
           </h1>
         </div>
 
@@ -177,8 +191,94 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="revision-de-estadistica-basica" class="section level1">
 <h1><span class="header-section-number">Capítulo 3</span> Revisión de estadística básica</h1>
-<p>En este capítulo se revisarán algunos conceptos estadísticos básicos que son fundamentales para el diseño y análisis estadísticod de experimentos</p>
+<p>En este capítulo se revisan algunos conceptos y términos estadísticos básicos que serán necesarios para el entendimiento del diseño y análisis estadístico de datos provenientes de estudios observacionales y experimentales. Se repasarán</p>
+<ul>
+<li>¿Qué es la estadística y para que sirve?</li>
+<li>Tipos de datos y variables</li>
+<li>Población y muestra</li>
+<li>Estadística descriptiva</li>
+<li>Distribuciones de probabilidades</li>
+<li>Inferencia estadística</li>
+</ul>
+<div id="que-es-la-estadistica" class="section level2">
+<h2><span class="header-section-number">3.1</span> ¿Qué es la estadística?</h2>
+<p>Existen muchas definiciones de <em>Estadística</em>, tantas como libros se consulten. Según Ott y Longnecker (2016), la estadística es la ciencia del diseño de estudios o experimentos, recolección de datos y modelado/análisis de los mismos para la toma de decisiones o descubrimiento de nuevo conocimiento cuando la información disponible es limitada y variable. En resumen, <strong>la estadística es la ciencia del aprendizaje a partir de los datos</strong> (<em>learning from data</em>) y está muy emparentada con la aplicación del <strong>método científico</strong>.</p>
+<p>Según este enfoque, el proceso de aprender a partir de los datos implica las siguientes etapas:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Definición del problema de estudio.</strong> Todo estudio o investigación surge de una pregunta de investigación. Un interrogante sobre el objeto de estudio que no ha sido respondido con la información existente y por lo tanto motiva la búsqueda de más información (nuevos experimentos o muestreos) para verificar las posibles respuestas o modelos que permiten representar la realidad en estudio (hipótesis). De este modo, a partir de la identificación del problema o pregunta de estudio se pone de relieve cual es la información que se debe recolectar, cuales son las variables que intervienen en el proceso, cuales controlar y cuales modificar, que tipo de datos se van a trabajar, etc.</p></li>
+<li><p><strong>Recolección de los datos.</strong> Una vez definido el problema de estudio, es necesario determinar de que manera se colectará la información relevante. Para ello se diseñan muestreos o experimentos que permitan de manera costo efectiva, obtener la mayor cantidad de información empleando el menor tiempo y dinero para logarar responder de manera precisa la pregunta que originó el estudio. La estadísitca brinda herramientas para el diseño de muestreos y experimentos.</p></li>
+<li><p><strong>Resumen de la información.</strong> Una vez recolectados los datos deben ser organizados y resumidos de manera numérica y gráfica para facilitar su exploración y e reconocimiento de las principales características o patrones de los mismos (tendencias, variabilidad, anomalías, etc.). La estadística brinda las herramientas necesarias para la descripción de la información proveniente de muestreos o experimentos.</p></li>
+<li><p><strong>Análisis, interpretación y comunicación de los resultados.</strong> Los datos provenientes de muestreos o experimentos son una pequeña parte (muestra) de un conjunto más grande (población) el cual es imposible observar en su totalidad. Es por esto que lo observado en un experimento debe ser analizado aplicando técnicas de inferencia estadística para poder interpretar los resultados y realizar generalizaciones. La estadística inferencial brinda herramientas para estimar y valorar los modelos definidos en la Etapa 1 a la luz de los datos recolectados en la Etapa 2 considerando la variabilidad del proceso que los generó.</p></li>
+</ol>
+</div>
+<div id="variables" class="section level2">
+<h2><span class="header-section-number">3.2</span> Variables</h2>
+<p>Las variables son características de interés que se observan o miden en la unidad de observación más pequeña. Al contrario que las constantes, las variables toman diferentes valores de una individuo a otro, i.e. varían. Las variables se pueden clasificar según el tipo de datos que contienen y la información que contienen.</p>
+<div id="tipos-de-datos-1" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Tipos de datos</h3>
+<p>Según el tipo de datos, las variables son:</p>
+<ul>
+<li><em>Cualitativas</em>: que expresan una <strong>cualidad</strong> o atributo no numéricos. <em>e.g. color de pelo, sexo, estatus sanitario, estado fenológico.</em></li>
+<li><em>Cuantitativas</em>: que expresan una <strong>cantidad discreta</strong> (<em>e.g. número de ramas, número de insectos</em>) o <strong>contínua</strong> (<em>e.g. peso de granos, contenido de MO del suelo</em>).</li>
+</ul>
+</div>
+<div id="escala-de-medicion" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Escala de medición</h3>
+<p>Según la cantidad de información que contienen (de menor a mayor), las variables se clasifican según su escala de medición en:</p>
+<ul>
+<li><strong>Nominal</strong>: cualitativa (<em>el número de identificación o RP de una vaca</em>)</li>
+<li><strong>Ordinal</strong>: cualitativa con orden (<em>posición en el ranking del control lechero</em>)</li>
+<li><strong>De intervalo</strong>: cuantitativa, orden y distancias (<em>fecha del último parto</em>)</li>
+<li><strong>De razón</strong>: cuantitativa, orden, distancia y proporciones (<em>días desde el último parto</em>)</li>
+</ul>
+<p>La escala de medición determina la cantidad de información que tienen y que métodos se pueden aplicar</p>
+</div>
+</div>
+<div id="poblacion-y-muestra" class="section level2">
+<h2><span class="header-section-number">3.3</span> Población y muestra</h2>
+<p>Desde el punto de vista estadístico, una <strong>Población</strong> es la totalidad de las unidades u observaciones individuales sobre la cuales se quiere <em>realizar inferencia</em>. Está <em>definida en el tiempo y espacio</em> y se caracteriza por sus <em>parámetros</em>, i.e. la media <span class="math inline">\(\mu\)</span>. Las poblaciones pueden ser finitas, i.e. se puede contar la totalidad de elementos que contienen, o infinita, i.e. no se pueden contar. En la mayoría de los casos, los métodos estadísticos asumen que la población es infinita o finitas pero tan grandes que a los efectos prácticos puede asumirse que son infinitas.</p>
+<p>Por su parte, una <strong>muestra</strong> es un subconjunto de individuos u observaciones individuales elegidas de la población. Las muestras son finitas y se caracterizan por sus <em>estadísticos</em> que son la versión muestral de los parámetros poblacionales, i.e. la media muestral <span class="math inline">\(\bar{y}\)</span>. Si el procedimiento para obtener la muestra es aleatorio entonces es razonable suponer que la muestra tendrá las mismas propiedades que la población y por lo tanto se puede usar para hacer inferencia estadística sobre la poblaicón.</p>
+<p>En el siguiente gráfico resume el concepto general de la inferencia estadística. Suponga que se quiere conocer el valor medio de las alturas (<em>parámetro</em>) en m de plantas de maíz de un lote de 50 has, i.e. <span class="math inline">\(\mu = ?\)</span>. El conjunto más grande denominado <em>Población</em> contiene las alturas en m de todas las plantas de maiz del lote en estudio y sobre el que se quiere hacer la inferencia (los <span class="math inline">\(\dots\)</span> indican que en el gráfico no están representados todos los valores). Cada planta es una <em>unidad de muestreo</em> porque es elegida individualmente, y una <em>unidad observacional</em> porque a cada planta se le realiza una observación (la altura). Aquellas alturas en rojo corresponden a las 6 plantas seleccionadas mediante un <em>muestreo aleatorio</em> para componer la muestra (<span class="math inline">\(n = 6\)</span>). La altura promedio de las plantas de la muestra (<em>estadístico</em>) es <span class="math inline">\(\bar{y} = 1.728\)</span>. Dado que el muestreo fue realizado al azar, el estadístico calculado a partir de la muestra brinda información sobre lo que pasa a nivel poblacional (<span class="math inline">\(\mu\)</span>). A su vez, la aleatoriedad del muestreo determina que si se repitiera el muestreo de 6 unidades muchas veces, el estadístico muestral tomaría distintos valores ya que es una <em>variable aleatoria</em>. Finalmente, a partir de la <em>distribución de probabilidades</em> asociada a los posibles valores que tomaría el estadístico muestral es posible realizar la inferencia sobre el parámetro poblacional incorporando la variabilidad del muestreo.</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" data-line-number="1"><span class="kw">include_graphics</span>(<span class="st">&quot;images/poblacion_muestra_venn.svg&quot;</span>,  <span class="dt">auto_pdf =</span> T)</a></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-50"></span>
+<img src="images/poblacion_muestra_venn.svg" alt="Esquema del proceso de inferencia estadística" width="80%" />
+<p class="caption">
+Figure 3.1: Esquema del proceso de inferencia estadística
+</p>
+</div>
+</div>
+<div id="estadistica-descriptiva" class="section level2">
+<h2><span class="header-section-number">3.4</span> Estadística descriptiva</h2>
+<p>Conjunto de técnicas y métodos para organizar, resumir y describir los datos.</p>
+<div id="graficos" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> Gráficos</h3>
+<ul>
+<li>Histogramas</li>
+<li>Gráficos de barras</li>
+<li>Box-plots</li>
+<li>Dispersión</li>
+</ul>
+</div>
+<div id="medidas-de-resumen" class="section level3">
+<h3><span class="header-section-number">3.4.2</span> Medidas de resumen</h3>
+<ul>
+<li>Tendencia central: media, mediana, modo</li>
+<li>Dispersión: varianza (desvío), rango, rango intercuartílico</li>
+<li>Posición: percentiles</li>
+<li>Forma: sesgo o asimetría y curtosis</li>
+</ul>
+</div>
+</div>
+<div id="distribuciones-directamente-la-normal-y-tcl" class="section level2">
+<h2><span class="header-section-number">3.5</span> distribuciones (directamente la normal y TCL)</h2>
+</div>
+<div id="ic" class="section level2">
+<h2><span class="header-section-number">3.6</span> IC</h2>
+</div>
+<div id="test-hipotesis" class="section level2">
+<h2><span class="header-section-number">3.7</span> Test hipotesis</h2>
 
+</div>
 </div>
 
 
