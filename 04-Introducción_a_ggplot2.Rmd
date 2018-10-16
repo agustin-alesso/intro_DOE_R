@@ -1,11 +1,4 @@
----
-title: "Introducción a `ggplot2`"
-author: "Agustín Alesso"
-output: 
-  html_document:
-    toc: yes
-    toc_float: yes
----
+# Introducción a `ggplot2`
 
 ## Sistemas de gráficos en **R**
 

@@ -1,10 +1,6 @@
 # Aspectos básicos del lenguaje R
 
-En el capítulo anterior se introdujo la interfase básica de R (la consola) y la edición de secuencias de comandos mediante el uso de scripts. También se mostró un ejemplo 
-
-
-
-
+En el capítulo anterior se introdujo la interfase básica de R (la consola) y la edición de secuencias de comandos mediante el uso de scripts. También se mostró la creación y uso de _proyectos_ en **RStudio**. En este capítulo se abordarán los conceptos básicos del lenguaje **R** tales como operadores para representar operaciones matemáticas (suma, resta, etc), tipos de variables y objetos para representar los datos, y características generales de las funciones o comandos.
 
 ## Operadores matemáticos
 

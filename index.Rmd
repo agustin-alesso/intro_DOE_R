@@ -18,13 +18,14 @@ description: "Material complementario para el dictado del curso _Diseño de Expe
 knitr::include_graphics('images/cover.jpg', dpi = NA)
 ```
 
-Este pequeño libro tiene como objetivo servir como material introductorio al diseño y análisis estadístico de experimentos utilizando el software R como soporte para cálculos.  
-Qué cubre?
+Este pequeño libro (en construcción) tiene como objetivo servir como material introductorio al diseño y análisis estadístico de experimentos utilizando el software R como soporte para cálculos. 
+
+¿Qué cubre?
 
 Introducción a R/Rstudio
 Repaso de estadística básica
 Principios de diseño
-Diseǹos más empleados
+Diseños más empleados
 
 Al final del libro se espera que el lector 
 

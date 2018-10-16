@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-
-<link rel="next" href="empezando-con-r-y-rstudio.html">
+<link rel="prev" href="introduccion-a-dplyr.html">
+<link rel="next" href="revision-de-estadistica-basica.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -210,34 +210,141 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Introducción al diseño y análisis estadístico de experimentos usando R</h1>
-<h4 class="author"><em>Agustín Alesso</em></h4>
-</div>
-<div id="introduccion" class="section level1 unnumbered">
-<h1>Introducción</h1>
-<p>Este pequeño libro tiene como objetivo servir como material introductorio al diseño y análisis estadístico de experimentos utilizando el software R como soporte para cálculos.<br />
-Qué cubre?</p>
-<p>Introducción a R/Rstudio
-Repaso de estadística básica
-Principios de diseño
-Diseǹos más empleados</p>
-<p>Al final del libro se espera que el lector</p>
+<div id="introduccion-a-ggplot2" class="section level1">
+<h1><span class="header-section-number">Capítulo 4</span> Introducción a <code>ggplot2</code></h1>
+<div id="sistemas-de-graficos-en-r" class="section level2">
+<h2><span class="header-section-number">4.1</span> Sistemas de gráficos en <strong>R</strong></h2>
+<p><strong>R</strong> cuenta con tres sistemas para graficar:</p>
 <ul>
-<li><p>Reconozca la importancia del enfoque estadístico para el diseño de experimentos.</p></li>
-<li><p>Tenga un sólido entendimiento de los principales métodos utilizados para el análisis de datos provenientes de experimentos diseñados.</p></li>
-<li><p>Desarrolle destrezas mínimas para utilizar el paquete estadístico R y el entorno de trabajo RStudio.</p></li>
-<li><p>Sepa interpretar los resultados de los análisis estadísticos en contexto de las ciencias biológicas y agrícolas.</p></li>
+<li><p>El básico o <code>base plot system</code>, que viene por defecto y tiene funciones para hacer gráficos simples <code>plot()</code> y otras (<code>hist()</code>, <code>barplot()</code>, <code>boxplot()</code>, etc). Usa un enfoque lienzo y lapiz donde cada capa se tiene que ir agregando una por una. El para gráficos más complejos (con subgrupos o multipanel) requiere programar más. Una desventaja es la sintaxis poco consistente.</p></li>
+<li><p>El paquete <code>lattice</code> desarrollado por Deepayan Sarkar, que implementa graficos tipo <code>trellis</code> (multipanel). Al contraro de el paquete <code>base</code>, <code>lattice</code> tiene un sintaxis más coherente y en vez de tener un enfoque <em>lienzo y lápiz</em>, todos los componentes del gráfico se declaran en una función. muy conveniente para graficos condicionales pero complicada para combinar gráficos o hacer ajustes finos.</p></li>
+<li><p>El paquete <code>ggplot2</code>, desarrollado por <a href="http://hadley.nz/">Hadley Wickham</a>, está basado en la filosofía <em>Gramática de gráficos</em> (<em>grammar of graphics</em>). Combina los dos enfoques: <em>lienzo-lápiz</em> y <em>función</em>. Uno provee los datos, indica que variables asignar a las estéticas (ejes, escalas, colores, símbolos) y tipo de gráfico hacer y <code>ggplot2</code> se encarga del resto. Puede ir agregando capas. Es muy potente para la exploración y visualización de datos en formato de tabla con filas (observaciones) y columnas (variables).</p></li>
 </ul>
+</div>
+<div id="como-conseguir-ggplot2" class="section level2">
+<h2><span class="header-section-number">4.2</span> ¿Cómo conseguir <code>ggplot2</code>?</h2>
+<p>Para instalar por primera vez en la computadora:</p>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" title="1"><span class="co"># Solo</span></a>
+<a class="sourceLine" id="cb151-2" title="2"><span class="kw">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</a>
+<a class="sourceLine" id="cb151-3" title="3"></a>
+<a class="sourceLine" id="cb151-4" title="4"><span class="co"># O junto con la familia tidyverse</span></a>
+<a class="sourceLine" id="cb151-5" title="5"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</a></code></pre></div>
+<p>Lo anterior se debe realizar por única vez si el paquete no está previamente instalado en la máquina. Para usar las funciones en una sesion de trabajo hay que cargarlo con <code>library()</code>:</p>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb152-1" title="1"><span class="co"># Solo</span></a>
+<a class="sourceLine" id="cb152-2" title="2"><span class="kw">library</span>(<span class="st">&quot;ggplot2&quot;</span>)</a>
+<a class="sourceLine" id="cb152-3" title="3"></a>
+<a class="sourceLine" id="cb152-4" title="4"><span class="co"># O junto con la familia tidyverse</span></a>
+<a class="sourceLine" id="cb152-5" title="5"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a></code></pre></div>
+<p><strong>R</strong> va a avisarnos en la consola que esta enmascarando (reemplazando) algunas funciones que ya estaban en el entorno, o bien el paquete nos devuelve algun mensaje. A menos que diga <code>Error ...</code>, eso está bien.</p>
+</div>
+<div id="partes-basicas-de-un-grafico" class="section level2">
+<h2><span class="header-section-number">4.3</span> Partes básicas de un gráfico</h2>
+<p>Si bien es dificil resumir como trabaja <code>ggplot2</code> en un párrafo, la estrategia para graficar puede resumirse así:</p>
+<ol style="list-style-type: decimal">
+<li>Se comienza con <code>ggplot()</code> para suministrar el set de datos y se definen. Se definen los parámetros estéticos, i.e. que variables van a los ejes, colores, escales, etc., con la <code>aes()</code>.</li>
+</ol>
+<p>En este caso el set de datos es <code>terneros</code> y queremos hacer un histograma. En el eje <code>x</code> vamos a indicar el <code>Peso</code> y en <code>relleno</code> vamos a indicar la <code>Procedencia</code></p>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb153-1" title="1"><span class="kw">library</span>(readxl)</a>
+<a class="sourceLine" id="cb153-2" title="2">terneros &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;./data/pesada_terneros.xlsx&quot;</span>)</a>
+<a class="sourceLine" id="cb153-3" title="3"></a>
+<a class="sourceLine" id="cb153-4" title="4"><span class="co"># Iniciar objeto</span></a>
+<a class="sourceLine" id="cb153-5" title="5">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(terneros, <span class="kw">aes</span>(<span class="dt">x =</span> Peso, <span class="dt">fill =</span> Procedencia))</a>
+<a class="sourceLine" id="cb153-6" title="6">p</a></code></pre></div>
+<p><img src="intro-DOE-R_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Luego agregar las capas o layers con las geometrías <code>geom_*</code> que uno quiere graficar (tipo de gráfico)</li>
+</ol>
+<p>En este caso como es un histograma entonces <code>geom_histogram()</code> es la geometría indicada.</p>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" title="1"><span class="co"># Iniciar objeto</span></a>
+<a class="sourceLine" id="cb154-2" title="2">p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>()</a>
+<a class="sourceLine" id="cb154-3" title="3">p</a></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="intro-DOE-R_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Si es necesario ajustar la escala de colores con <code>scales_</code>. En este caso vamos a probar un gradiente de colores con <code>scale_color_brewer()</code>.</li>
+</ol>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" title="1"><span class="co"># Iniciar objeto</span></a>
+<a class="sourceLine" id="cb156-2" title="2">p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">scale_fill_brewer</span>(<span class="st">&quot;RdYlGn&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;div&quot;</span>)</a>
+<a class="sourceLine" id="cb156-3" title="3">p</a></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="intro-DOE-R_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Suponiendo que queremos dividir en paneles se puede usar <code>factes_wrap()</code>. En este caso agregamos <code>Fecha</code> como facets.</li>
+</ol>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb158-1" title="1">p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Fecha)</a>
+<a class="sourceLine" id="cb158-2" title="2">p</a></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="intro-DOE-R_files/figure-html/unnamed-chunk-78-1.png" width="672" /></p>
+<ol start="5" style="list-style-type: decimal">
+<li>Se puede modificar los ejes de coordenadas con las funciones de tipo <code>coords_()</code>. Por ejemplo, para ilustrar vamos a rotar el gráfico.</li>
+</ol>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb160-1" title="1">p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">coord_flip</span>()</a>
+<a class="sourceLine" id="cb160-2" title="2">p</a></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="intro-DOE-R_files/figure-html/unnamed-chunk-79-1.png" width="672" /></p>
+<ol start="6" style="list-style-type: decimal">
+<li>Por último se pueden modificar los títulos de los ejes y otros detalles como la leyenda</li>
+</ol>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb162-1" title="1">p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Peso (kg)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;frecuencia&quot;</span>)</a>
+<a class="sourceLine" id="cb162-2" title="2">p</a></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="intro-DOE-R_files/figure-html/unnamed-chunk-80-1.png" width="672" /></p>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb164-1" title="1">p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="kw">guide_legend</span>(<span class="dt">title =</span> <span class="st">&quot;Procedencia&quot;</span>))</a>
+<a class="sourceLine" id="cb164-2" title="2">p</a></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="intro-DOE-R_files/figure-html/unnamed-chunk-80-2.png" width="672" /></p>
+</div>
+<div id="todo-en-un-solo-paso" class="section level2">
+<h2><span class="header-section-number">4.4</span> Todo en un solo paso</h2>
+<p>Anteriormente fuimos agregando partes al gráfico. Una característica de <code>ggplot2</code> es que mediante <code>+</code> se pueden ir combinando los comandos.</p>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb166-1" title="1">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(terneros, <span class="kw">aes</span>(<span class="dt">x =</span> Peso, <span class="dt">fill =</span> Procedencia)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb166-2" title="2"><span class="st">  </span><span class="kw">geom_histogram</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb166-3" title="3"><span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="st">&quot;RdYlGn&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;div&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb166-4" title="4"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Fecha) <span class="op">+</span></a>
+<a class="sourceLine" id="cb166-5" title="5"><span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb166-6" title="6"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Peso (kg)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;frecuencia&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb166-7" title="7"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="kw">guide_legend</span>(<span class="dt">title =</span> <span class="st">&quot;Procedencia&quot;</span>))</a>
+<a class="sourceLine" id="cb166-8" title="8">p</a></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="intro-DOE-R_files/figure-html/unnamed-chunk-81-1.png" width="672" /></p>
+<p>O más avanzado, agregando estadísticas de resumen calculadas</p>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb168-1" title="1"><span class="co"># Agregar linea representando medias por procedencia  y fecha</span></a>
+<a class="sourceLine" id="cb168-2" title="2"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb168-3" title="3">med &lt;-<span class="st"> </span>terneros <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb168-4" title="4"><span class="st">  </span><span class="kw">group_by</span>(Procedencia, Fecha) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb168-5" title="5"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">media =</span> <span class="kw">mean</span>(Peso))</a>
+<a class="sourceLine" id="cb168-6" title="6">med</a></code></pre></div>
+<pre><code>## # A tibble: 12 x 3
+## # Groups:   Procedencia [?]
+##    Procedencia    Fecha               media
+##    &lt;chr&gt;          &lt;dttm&gt;              &lt;dbl&gt;
+##  1 Don Alberto    2017-04-20 00:00:00  179.
+##  2 La Alameda     2017-04-18 00:00:00  190.
+##  3 La Estrella    2017-04-12 00:00:00  179.
+##  4 La Rosita      2017-04-06 00:00:00  180.
+##  5 La Rosita      2017-04-10 00:00:00  182 
+##  6 La Segunda     2017-04-20 00:00:00  229.
+##  7 Las Glicinas   2017-04-09 00:00:00  163.
+##  8 Las Glicinas   2017-04-10 00:00:00  159.
+##  9 Los Corralitos 2017-04-10 00:00:00  198.
+## 10 Los Corralitos 2017-04-11 00:00:00  195.
+## 11 Los Corralitos 2017-04-12 00:00:00  200.
+## 12 Los Corralitos 2017-04-20 00:00:00  182</code></pre>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb170-1" title="1"><span class="co"># Combinar en el grafico (coord_cartesian para que vuelva a horizontal)</span></a>
+<a class="sourceLine" id="cb170-2" title="2">p <span class="op">+</span><span class="st"> </span><span class="kw">coord_cartesian</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_vline</span>(<span class="dt">data =</span> med, <span class="kw">aes</span>(<span class="dt">xintercept =</span> media))</a></code></pre></div>
+<pre><code>## Coordinate system already present. Adding new coordinate system, which will replace the existing one.</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="intro-DOE-R_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="empezando-con-r-y-rstudio.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="introduccion-a-dplyr.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="revision-de-estadistica-basica.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

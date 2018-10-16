@@ -31,7 +31,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="aspectos-basicos-del-lenguaje-r.html">
+<link rel="prev" href="introduccion-a-ggplot2.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -66,7 +66,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -157,20 +157,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.7.4" data-path="aspectos-basicos-del-lenguaje-r.html"><a href="aspectos-basicos-del-lenguaje-r.html#factores-factor-y-ordered"><i class="fa fa-check"></i><b>2.7.4</b> Factores (<code>factor</code> y <code>ordered</code>)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html"><i class="fa fa-check"></i><b>3</b> Revisión de estadística básica</a><ul>
-<li class="chapter" data-level="3.1" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#que-es-la-estadistica"><i class="fa fa-check"></i><b>3.1</b> ¿Qué es la estadística?</a></li>
-<li class="chapter" data-level="3.2" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#variables"><i class="fa fa-check"></i><b>3.2</b> Variables</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#tipos-de-datos-1"><i class="fa fa-check"></i><b>3.2.1</b> Tipos de datos</a></li>
-<li class="chapter" data-level="3.2.2" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#escala-de-medicion"><i class="fa fa-check"></i><b>3.2.2</b> Escala de medición</a></li>
+<li class="chapter" data-level="3" data-path="introduccion-a-dplyr.html"><a href="introduccion-a-dplyr.html"><i class="fa fa-check"></i><b>3</b> Introducción a <code>dplyr</code></a><ul>
+<li class="chapter" data-level="3.1" data-path="introduccion-a-dplyr.html"><a href="introduccion-a-dplyr.html#que-es-dplyr"><i class="fa fa-check"></i><b>3.1</b> ¿Qué es <code>dplyr</code>?</a></li>
+<li class="chapter" data-level="3.2" data-path="introduccion-a-dplyr.html"><a href="introduccion-a-dplyr.html#como-conseguir-dplyr"><i class="fa fa-check"></i><b>3.2</b> ¿Cómo conseguir <code>dplyr</code>?</a></li>
+<li class="chapter" data-level="3.3" data-path="introduccion-a-dplyr.html"><a href="introduccion-a-dplyr.html#verbos-importantes-de-dplyr-para-recordar"><i class="fa fa-check"></i><b>3.3</b> Verbos importantes de <code>dplyr</code> para recordar</a></li>
+<li class="chapter" data-level="3.4" data-path="introduccion-a-dplyr.html"><a href="introduccion-a-dplyr.html#dplyr-en-accion"><i class="fa fa-check"></i><b>3.4</b> <code>dplyr</code> en acción</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="introduccion-a-dplyr.html"><a href="introduccion-a-dplyr.html#seleccionando-variables"><i class="fa fa-check"></i><b>3.4.1</b> Seleccionando variables</a></li>
+<li class="chapter" data-level="3.4.2" data-path="introduccion-a-dplyr.html"><a href="introduccion-a-dplyr.html#seleccionando-observaciones"><i class="fa fa-check"></i><b>3.4.2</b> Seleccionando observaciones</a></li>
+<li class="chapter" data-level="3.4.3" data-path="introduccion-a-dplyr.html"><a href="introduccion-a-dplyr.html#encadenando-operaciones-operador"><i class="fa fa-check"></i><b>3.4.3</b> Encadenando operaciones (operador <code>%&gt;%</code>)</a></li>
+<li class="chapter" data-level="3.4.4" data-path="introduccion-a-dplyr.html"><a href="introduccion-a-dplyr.html#ordenar-las-filas"><i class="fa fa-check"></i><b>3.4.4</b> Ordenar las filas</a></li>
+<li class="chapter" data-level="3.4.5" data-path="introduccion-a-dplyr.html"><a href="introduccion-a-dplyr.html#crear-o-transformar-columnas"><i class="fa fa-check"></i><b>3.4.5</b> Crear o transformar columnas</a></li>
+<li class="chapter" data-level="3.4.6" data-path="introduccion-a-dplyr.html"><a href="introduccion-a-dplyr.html#resmuir-datos"><i class="fa fa-check"></i><b>3.4.6</b> Resmuir datos</a></li>
+<li class="chapter" data-level="3.4.7" data-path="introduccion-a-dplyr.html"><a href="introduccion-a-dplyr.html#agrupar-ultimo-pero-no-menos-importante"><i class="fa fa-check"></i><b>3.4.7</b> Agrupar (último pero no menos importante)</a></li>
+<li class="chapter" data-level="3.4.8" data-path="introduccion-a-dplyr.html"><a href="introduccion-a-dplyr.html#muestrear"><i class="fa fa-check"></i><b>3.4.8</b> Muestrear</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#poblacion-y-muestra"><i class="fa fa-check"></i><b>3.3</b> Población y muestra</a></li>
-<li class="chapter" data-level="3.4" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#estadistica-descriptiva"><i class="fa fa-check"></i><b>3.4</b> Estadística descriptiva</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#graficos"><i class="fa fa-check"></i><b>3.4.1</b> Gráficos</a></li>
-<li class="chapter" data-level="3.4.2" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#medidas-de-resumen"><i class="fa fa-check"></i><b>3.4.2</b> Medidas de resumen</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#distribuciones-directamente-la-normal-y-tcl"><i class="fa fa-check"></i><b>3.5</b> distribuciones (directamente la normal y TCL)</a></li>
-<li class="chapter" data-level="3.6" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#ic"><i class="fa fa-check"></i><b>3.6</b> IC</a></li>
-<li class="chapter" data-level="3.7" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#test-hipotesis"><i class="fa fa-check"></i><b>3.7</b> Test hipotesis</a></li>
+<li class="chapter" data-level="4" data-path="introduccion-a-ggplot2.html"><a href="introduccion-a-ggplot2.html"><i class="fa fa-check"></i><b>4</b> Introducción a <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="4.1" data-path="introduccion-a-ggplot2.html"><a href="introduccion-a-ggplot2.html#sistemas-de-graficos-en-r"><i class="fa fa-check"></i><b>4.1</b> Sistemas de gráficos en <strong>R</strong></a></li>
+<li class="chapter" data-level="4.2" data-path="introduccion-a-ggplot2.html"><a href="introduccion-a-ggplot2.html#como-conseguir-ggplot2"><i class="fa fa-check"></i><b>4.2</b> ¿Cómo conseguir <code>ggplot2</code>?</a></li>
+<li class="chapter" data-level="4.3" data-path="introduccion-a-ggplot2.html"><a href="introduccion-a-ggplot2.html#partes-basicas-de-un-grafico"><i class="fa fa-check"></i><b>4.3</b> Partes básicas de un gráfico</a></li>
+<li class="chapter" data-level="4.4" data-path="introduccion-a-ggplot2.html"><a href="introduccion-a-ggplot2.html#todo-en-un-solo-paso"><i class="fa fa-check"></i><b>4.4</b> Todo en un solo paso</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html"><i class="fa fa-check"></i><b>5</b> Revisión de estadística básica</a><ul>
+<li class="chapter" data-level="5.1" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#que-es-la-estadistica"><i class="fa fa-check"></i><b>5.1</b> ¿Qué es la estadística?</a></li>
+<li class="chapter" data-level="5.2" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#variables"><i class="fa fa-check"></i><b>5.2</b> Variables</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#tipos-de-datos-1"><i class="fa fa-check"></i><b>5.2.1</b> Tipos de datos</a></li>
+<li class="chapter" data-level="5.2.2" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#escala-de-medicion"><i class="fa fa-check"></i><b>5.2.2</b> Escala de medición</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#poblacion-y-muestra"><i class="fa fa-check"></i><b>5.3</b> Población y muestra</a></li>
+<li class="chapter" data-level="5.4" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#estadistica-descriptiva"><i class="fa fa-check"></i><b>5.4</b> Estadística descriptiva</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#graficos"><i class="fa fa-check"></i><b>5.4.1</b> Gráficos</a></li>
+<li class="chapter" data-level="5.4.2" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#medidas-de-resumen"><i class="fa fa-check"></i><b>5.4.2</b> Medidas de resumen</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#distribuciones-directamente-la-normal-y-tcl"><i class="fa fa-check"></i><b>5.5</b> distribuciones (directamente la normal y TCL)</a></li>
+<li class="chapter" data-level="5.6" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#ic"><i class="fa fa-check"></i><b>5.6</b> IC</a></li>
+<li class="chapter" data-level="5.7" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#test-hipotesis"><i class="fa fa-check"></i><b>5.7</b> Test hipotesis</a></li>
 </ul></li>
 </ul>
 
@@ -190,10 +211,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="revision-de-estadistica-basica" class="section level1">
-<h1><span class="header-section-number">Capítulo 3</span> Revisión de estadística básica</h1>
-<p>En este capítulo se revisan algunos conceptos y términos estadísticos básicos que serán necesarios para el entendimiento del diseño y análisis estadístico de datos provenientes de estudios observacionales y experimentales. Se repasarán</p>
+<h1><span class="header-section-number">Capítulo 5</span> Revisión de estadística básica</h1>
+<p>En este capítulo se revisan algunos conceptos y términos estadísticos básicos que serán necesarios para el entendimiento del diseño y análisis estadístico de datos provenientes de estudios observacionales y experimentales. Se repasarán:</p>
 <ul>
-<li>¿Qué es la estadística y para que sirve?</li>
+<li>Concepto y utilidad de la Estadística</li>
 <li>Tipos de datos y variables</li>
 <li>Población y muestra</li>
 <li>Estadística descriptiva</li>
@@ -201,7 +222,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Inferencia estadística</li>
 </ul>
 <div id="que-es-la-estadistica" class="section level2">
-<h2><span class="header-section-number">3.1</span> ¿Qué es la estadística?</h2>
+<h2><span class="header-section-number">5.1</span> ¿Qué es la estadística?</h2>
 <p>Existen muchas definiciones de <em>Estadística</em>, tantas como libros se consulten. Según Ott y Longnecker (2016), la estadística es la ciencia del diseño de estudios o experimentos, recolección de datos y modelado/análisis de los mismos para la toma de decisiones o descubrimiento de nuevo conocimiento cuando la información disponible es limitada y variable. En resumen, <strong>la estadística es la ciencia del aprendizaje a partir de los datos</strong> (<em>learning from data</em>) y está muy emparentada con la aplicación del <strong>método científico</strong>.</p>
 <p>Según este enfoque, el proceso de aprender a partir de los datos implica las siguientes etapas:</p>
 <ol style="list-style-type: decimal">
@@ -212,10 +233,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 </div>
 <div id="variables" class="section level2">
-<h2><span class="header-section-number">3.2</span> Variables</h2>
+<h2><span class="header-section-number">5.2</span> Variables</h2>
 <p>Las variables son características de interés que se observan o miden en la unidad de observación más pequeña. Al contrario que las constantes, las variables toman diferentes valores de una individuo a otro, i.e. varían. Las variables se pueden clasificar según el tipo de datos que contienen y la información que contienen.</p>
 <div id="tipos-de-datos-1" class="section level3">
-<h3><span class="header-section-number">3.2.1</span> Tipos de datos</h3>
+<h3><span class="header-section-number">5.2.1</span> Tipos de datos</h3>
 <p>Según el tipo de datos, las variables son:</p>
 <ul>
 <li><em>Cualitativas</em>: que expresan una <strong>cualidad</strong> o atributo no numéricos. <em>e.g. color de pelo, sexo, estatus sanitario, estado fenológico.</em></li>
@@ -223,7 +244,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 <div id="escala-de-medicion" class="section level3">
-<h3><span class="header-section-number">3.2.2</span> Escala de medición</h3>
+<h3><span class="header-section-number">5.2.2</span> Escala de medición</h3>
 <p>Según la cantidad de información que contienen (de menor a mayor), las variables se clasifican según su escala de medición en:</p>
 <ul>
 <li><strong>Nominal</strong>: cualitativa (<em>el número de identificación o RP de una vaca</em>)</li>
@@ -235,23 +256,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div id="poblacion-y-muestra" class="section level2">
-<h2><span class="header-section-number">3.3</span> Población y muestra</h2>
+<h2><span class="header-section-number">5.3</span> Población y muestra</h2>
 <p>Desde el punto de vista estadístico, una <strong>Población</strong> es la totalidad de las unidades u observaciones individuales sobre la cuales se quiere <em>realizar inferencia</em>. Está <em>definida en el tiempo y espacio</em> y se caracteriza por sus <em>parámetros</em>, i.e. la media <span class="math inline">\(\mu\)</span>. Las poblaciones pueden ser finitas, i.e. se puede contar la totalidad de elementos que contienen, o infinita, i.e. no se pueden contar. En la mayoría de los casos, los métodos estadísticos asumen que la población es infinita o finitas pero tan grandes que a los efectos prácticos puede asumirse que son infinitas.</p>
 <p>Por su parte, una <strong>muestra</strong> es un subconjunto de individuos u observaciones individuales elegidas de la población. Las muestras son finitas y se caracterizan por sus <em>estadísticos</em> que son la versión muestral de los parámetros poblacionales, i.e. la media muestral <span class="math inline">\(\bar{y}\)</span>. Si el procedimiento para obtener la muestra es aleatorio entonces es razonable suponer que la muestra tendrá las mismas propiedades que la población y por lo tanto se puede usar para hacer inferencia estadística sobre la poblaicón.</p>
 <p>En el siguiente gráfico resume el concepto general de la inferencia estadística. Suponga que se quiere conocer el valor medio de las alturas (<em>parámetro</em>) en m de plantas de maíz de un lote de 50 has, i.e. <span class="math inline">\(\mu = ?\)</span>. El conjunto más grande denominado <em>Población</em> contiene las alturas en m de todas las plantas de maiz del lote en estudio y sobre el que se quiere hacer la inferencia (los <span class="math inline">\(\dots\)</span> indican que en el gráfico no están representados todos los valores). Cada planta es una <em>unidad de muestreo</em> porque es elegida individualmente, y una <em>unidad observacional</em> porque a cada planta se le realiza una observación (la altura). Aquellas alturas en rojo corresponden a las 6 plantas seleccionadas mediante un <em>muestreo aleatorio</em> para componer la muestra (<span class="math inline">\(n = 6\)</span>). La altura promedio de las plantas de la muestra (<em>estadístico</em>) es <span class="math inline">\(\bar{y} = 1.728\)</span>. Dado que el muestreo fue realizado al azar, el estadístico calculado a partir de la muestra brinda información sobre lo que pasa a nivel poblacional (<span class="math inline">\(\mu\)</span>). A su vez, la aleatoriedad del muestreo determina que si se repitiera el muestreo de 6 unidades muchas veces, el estadístico muestral tomaría distintos valores ya que es una <em>variable aleatoria</em>. Finalmente, a partir de la <em>distribución de probabilidades</em> asociada a los posibles valores que tomaría el estadístico muestral es posible realizar la inferencia sobre el parámetro poblacional incorporando la variabilidad del muestreo.</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" data-line-number="1"><span class="kw">include_graphics</span>(<span class="st">&quot;images/poblacion_muestra_venn.svg&quot;</span>,  <span class="dt">auto_pdf =</span> T)</a></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-50"></span>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb173-1" title="1"><span class="kw">include_graphics</span>(<span class="st">&quot;images/poblacion_muestra_venn.svg&quot;</span>,  <span class="dt">auto_pdf =</span> T)</a></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-83"></span>
 <img src="images/poblacion_muestra_venn.svg" alt="Esquema del proceso de inferencia estadística" width="80%" />
 <p class="caption">
-Figure 3.1: Esquema del proceso de inferencia estadística
+Figure 5.1: Esquema del proceso de inferencia estadística
 </p>
 </div>
 </div>
 <div id="estadistica-descriptiva" class="section level2">
-<h2><span class="header-section-number">3.4</span> Estadística descriptiva</h2>
+<h2><span class="header-section-number">5.4</span> Estadística descriptiva</h2>
 <p>Conjunto de técnicas y métodos para organizar, resumir y describir los datos.</p>
 <div id="graficos" class="section level3">
-<h3><span class="header-section-number">3.4.1</span> Gráficos</h3>
+<h3><span class="header-section-number">5.4.1</span> Gráficos</h3>
 <ul>
 <li>Histogramas</li>
 <li>Gráficos de barras</li>
@@ -260,7 +281,7 @@ Figure 3.1: Esquema del proceso de inferencia estadística
 </ul>
 </div>
 <div id="medidas-de-resumen" class="section level3">
-<h3><span class="header-section-number">3.4.2</span> Medidas de resumen</h3>
+<h3><span class="header-section-number">5.4.2</span> Medidas de resumen</h3>
 <ul>
 <li>Tendencia central: media, mediana, modo</li>
 <li>Dispersión: varianza (desvío), rango, rango intercuartílico</li>
@@ -270,13 +291,13 @@ Figure 3.1: Esquema del proceso de inferencia estadística
 </div>
 </div>
 <div id="distribuciones-directamente-la-normal-y-tcl" class="section level2">
-<h2><span class="header-section-number">3.5</span> distribuciones (directamente la normal y TCL)</h2>
+<h2><span class="header-section-number">5.5</span> distribuciones (directamente la normal y TCL)</h2>
 </div>
 <div id="ic" class="section level2">
-<h2><span class="header-section-number">3.6</span> IC</h2>
+<h2><span class="header-section-number">5.6</span> IC</h2>
 </div>
 <div id="test-hipotesis" class="section level2">
-<h2><span class="header-section-number">3.7</span> Test hipotesis</h2>
+<h2><span class="header-section-number">5.7</span> Test hipotesis</h2>
 
 </div>
 </div>
@@ -293,7 +314,7 @@ Figure 3.1: Esquema del proceso de inferencia estadística
           </div>
         </div>
       </div>
-<a href="aspectos-basicos-del-lenguaje-r.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="introduccion-a-ggplot2.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>
