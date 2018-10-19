@@ -3,6 +3,7 @@ title: "Introducción al diseño y análisis estadístico de experimentos usando
 author: "Agustín Alesso"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
+cover-image: "images/choose_OS.png"
 documentclass: book
 classoption: a4paper
 bibliography: [book.bib, packages.bib]
@@ -14,9 +15,6 @@ description: "Material complementario para el dictado del curso _Diseño de Expe
 
 # Introducción {-}
 
-```{r fig.align='center', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html')}
-knitr::include_graphics('images/cover.jpg', dpi = NA)
-```
 
 Este pequeño libro (en construcción) tiene como objetivo servir como material introductorio al diseño y análisis estadístico de experimentos utilizando el software R como soporte para cálculos. 
 
@@ -27,12 +25,13 @@ Repaso de estadística básica
 Principios de diseño
 Diseños más empleados
 
-Al final del libro se espera que el lector 
+Al final del libro se espera que el lector:
 
 - Reconozca la importancia del enfoque estadístico para el diseño de experimentos.
 
 - Tenga un sólido entendimiento de los principales métodos utilizados para el análisis de datos provenientes de experimentos diseñados.
 
+- Sepa interpretar los resultados de los análisis estadísticos en contexto de las ciencias biológicas y agrícolas.
+
 - Desarrolle destrezas mínimas para utilizar el paquete estadístico R y el entorno de trabajo RStudio.
 
-- Sepa interpretar los resultados de los análisis estadísticos en contexto de las ciencias biológicas y agrícolas.

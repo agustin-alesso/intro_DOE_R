@@ -12,7 +12,7 @@
   <meta property="og:title" content="Introducción al diseño y análisis estadístico de experimentos usando R" />
   <meta property="og:type" content="book" />
   
-  
+  <meta property="og:image" content="images/choose_OS.png" />
   <meta property="og:description" content="Material complementario para el dictado del curso <em>Diseño de Experimentos</em> de la Maestría de Cultivos Intensivos de la FCA-UNL" />
   
 
@@ -20,7 +20,7 @@
   <meta name="twitter:title" content="Introducción al diseño y análisis estadístico de experimentos usando R" />
   
   <meta name="twitter:description" content="Material complementario para el dictado del curso <em>Diseño de Experimentos</em> de la Maestría de Cultivos Intensivos de la FCA-UNL" />
-  
+  <meta name="twitter:image" content="images/choose_OS.png" />
 
 <meta name="author" content="Agustín Alesso">
 
@@ -186,8 +186,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#poblacion-y-muestra"><i class="fa fa-check"></i><b>5.3</b> Población y muestra</a></li>
 <li class="chapter" data-level="5.4" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#estadistica-descriptiva"><i class="fa fa-check"></i><b>5.4</b> Estadística descriptiva</a><ul>
-<li class="chapter" data-level="5.4.1" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#graficos"><i class="fa fa-check"></i><b>5.4.1</b> Gráficos</a></li>
-<li class="chapter" data-level="5.4.2" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#medidas-de-resumen"><i class="fa fa-check"></i><b>5.4.2</b> Medidas de resumen</a></li>
+<li class="chapter" data-level="5.4.1" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#tablas-de-frecuencias"><i class="fa fa-check"></i><b>5.4.1</b> Tablas de frecuencias</a></li>
+<li class="chapter" data-level="5.4.2" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#graficos"><i class="fa fa-check"></i><b>5.4.2</b> Gráficos</a></li>
+<li class="chapter" data-level="5.4.3" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#medidas-de-resumen"><i class="fa fa-check"></i><b>5.4.3</b> Medidas de resumen</a></li>
+<li class="chapter" data-level="5.4.4" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#grafico-de-caja"><i class="fa fa-check"></i><b>5.4.4</b> Gráfico de caja</a></li>
+<li class="chapter" data-level="5.4.5" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#medidas-de-forma"><i class="fa fa-check"></i><b>5.4.5</b> Medidas de forma</a></li>
+<li class="chapter" data-level="5.4.6" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#todas-las-medidas-juntas"><i class="fa fa-check"></i><b>5.4.6</b> Todas las medidas juntas</a></li>
 </ul></li>
 <li class="chapter" data-level="5.5" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#distribuciones-directamente-la-normal-y-tcl"><i class="fa fa-check"></i><b>5.5</b> distribuciones (directamente la normal y TCL)</a></li>
 <li class="chapter" data-level="5.6" data-path="revision-de-estadistica-basica.html"><a href="revision-de-estadistica-basica.html#ic"><i class="fa fa-check"></i><b>5.6</b> IC</a></li>
@@ -250,7 +254,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb153-4" title="4"><span class="co"># Iniciar objeto</span></a>
 <a class="sourceLine" id="cb153-5" title="5">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(terneros, <span class="kw">aes</span>(<span class="dt">x =</span> Peso, <span class="dt">fill =</span> Procedencia))</a>
 <a class="sourceLine" id="cb153-6" title="6">p</a></code></pre></div>
-<p><img src="intro-DOE-R_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
+<p><img src="intro-DOE-R_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
 <ol start="2" style="list-style-type: decimal">
 <li>Luego agregar las capas o layers con las geometrías <code>geom_*</code> que uno quiere graficar (tipo de gráfico)</li>
 </ol>
@@ -259,7 +263,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb154-2" title="2">p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>()</a>
 <a class="sourceLine" id="cb154-3" title="3">p</a></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="intro-DOE-R_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
+<p><img src="intro-DOE-R_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
 <ol start="3" style="list-style-type: decimal">
 <li>Si es necesario ajustar la escala de colores con <code>scales_</code>. En este caso vamos a probar un gradiente de colores con <code>scale_color_brewer()</code>.</li>
 </ol>
@@ -267,32 +271,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb156-2" title="2">p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">scale_fill_brewer</span>(<span class="st">&quot;RdYlGn&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;div&quot;</span>)</a>
 <a class="sourceLine" id="cb156-3" title="3">p</a></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="intro-DOE-R_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
+<p><img src="intro-DOE-R_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
 <ol start="4" style="list-style-type: decimal">
 <li>Suponiendo que queremos dividir en paneles se puede usar <code>factes_wrap()</code>. En este caso agregamos <code>Fecha</code> como facets.</li>
 </ol>
 <div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb158-1" title="1">p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Fecha)</a>
 <a class="sourceLine" id="cb158-2" title="2">p</a></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="intro-DOE-R_files/figure-html/unnamed-chunk-78-1.png" width="672" /></p>
+<p><img src="intro-DOE-R_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
 <ol start="5" style="list-style-type: decimal">
 <li>Se puede modificar los ejes de coordenadas con las funciones de tipo <code>coords_()</code>. Por ejemplo, para ilustrar vamos a rotar el gráfico.</li>
 </ol>
 <div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb160-1" title="1">p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">coord_flip</span>()</a>
 <a class="sourceLine" id="cb160-2" title="2">p</a></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="intro-DOE-R_files/figure-html/unnamed-chunk-79-1.png" width="672" /></p>
+<p><img src="intro-DOE-R_files/figure-html/unnamed-chunk-78-1.png" width="672" /></p>
 <ol start="6" style="list-style-type: decimal">
 <li>Por último se pueden modificar los títulos de los ejes y otros detalles como la leyenda</li>
 </ol>
 <div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb162-1" title="1">p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Peso (kg)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;frecuencia&quot;</span>)</a>
 <a class="sourceLine" id="cb162-2" title="2">p</a></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="intro-DOE-R_files/figure-html/unnamed-chunk-80-1.png" width="672" /></p>
+<p><img src="intro-DOE-R_files/figure-html/unnamed-chunk-79-1.png" width="672" /></p>
 <div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb164-1" title="1">p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="kw">guide_legend</span>(<span class="dt">title =</span> <span class="st">&quot;Procedencia&quot;</span>))</a>
 <a class="sourceLine" id="cb164-2" title="2">p</a></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="intro-DOE-R_files/figure-html/unnamed-chunk-80-2.png" width="672" /></p>
+<p><img src="intro-DOE-R_files/figure-html/unnamed-chunk-79-2.png" width="672" /></p>
 </div>
 <div id="todo-en-un-solo-paso" class="section level2">
 <h2><span class="header-section-number">4.4</span> Todo en un solo paso</h2>
@@ -306,7 +310,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb166-7" title="7"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="kw">guide_legend</span>(<span class="dt">title =</span> <span class="st">&quot;Procedencia&quot;</span>))</a>
 <a class="sourceLine" id="cb166-8" title="8">p</a></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="intro-DOE-R_files/figure-html/unnamed-chunk-81-1.png" width="672" /></p>
+<p><img src="intro-DOE-R_files/figure-html/unnamed-chunk-80-1.png" width="672" /></p>
 <p>O más avanzado, agregando estadísticas de resumen calculadas</p>
 <div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb168-1" title="1"><span class="co"># Agregar linea representando medias por procedencia  y fecha</span></a>
 <a class="sourceLine" id="cb168-2" title="2"><span class="kw">library</span>(dplyr)</a>
@@ -327,14 +331,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  7 Las Glicinas   2017-04-09 00:00:00  163.
 ##  8 Las Glicinas   2017-04-10 00:00:00  159.
 ##  9 Los Corralitos 2017-04-10 00:00:00  198.
-## 10 Los Corralitos 2017-04-11 00:00:00  195.
+## 10 Los Corralitos 2017-04-11 00:00:00  196.
 ## 11 Los Corralitos 2017-04-12 00:00:00  200.
 ## 12 Los Corralitos 2017-04-20 00:00:00  182</code></pre>
 <div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb170-1" title="1"><span class="co"># Combinar en el grafico (coord_cartesian para que vuelva a horizontal)</span></a>
 <a class="sourceLine" id="cb170-2" title="2">p <span class="op">+</span><span class="st"> </span><span class="kw">coord_cartesian</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_vline</span>(<span class="dt">data =</span> med, <span class="kw">aes</span>(<span class="dt">xintercept =</span> media))</a></code></pre></div>
 <pre><code>## Coordinate system already present. Adding new coordinate system, which will replace the existing one.</code></pre>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="intro-DOE-R_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
+<p><img src="intro-DOE-R_files/figure-html/unnamed-chunk-81-1.png" width="672" /></p>
 
 </div>
 </div>
@@ -364,7 +368,7 @@ gitbook.start({
 "size": 2
 },
 "edit": null,
-"download": ["intro-DOE-R.pdf", "intro-DOE-R.epub"],
+"download": null,
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true

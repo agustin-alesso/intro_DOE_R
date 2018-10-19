@@ -13,15 +13,14 @@ En este capítulo revisaremos algunos conceptos y términos estadísticos básic
 
 Existen muchas definiciones de _Estadística_, tantas como libros consultemos. Según Ott y Longnecker (2016), la estadística es la ciencia del diseño de estudios o experimentos, recolección de datos y modelado/análisis de los mismos para la toma de decisiones o descubrimiento de nuevo conocimiento cuando la información disponible es limitada y variable. En resumen, **la estadística es la ciencia del aprendizaje a partir de los datos** (_learning from data_) y está muy emparentada con la aplicación del **método científico**. 
 
-Según este enfoque, el proceso de aprender a partir de los datos implica las siguientes etapas:  
+Según este enfoque, el proceso de aprender a partir de los datos implica las siguientes etapas: 
+1. **Definición del problema de estudio.** Todo estudio o investigación surge de una pregunta de investigación, un interrogante sobre nuestro objeto de estudio que no ha sido respondido aún con la información existente. Esto motiva la búsqueda de más información (nuevos experimentos o muestreos) para verificar las posibles respuestas o modelos que nos permitan representarlo (hipótesis). Entonces, a partir de la identificación del problema o pregunta de estudio ponemos de relieve cuáles son las variables que intervienen en el proceso, cuáles hay que controlar y cuáles hay que alterar para ver la respuesta, cuál es la información que debemos recolectar, que tipo de datos se van a trabajar, etc. 
 
-1. **Definición del problema de estudio.** Todo estudio o investigación surge de una pregunta de investigación. Un interrogante sobre nuestro objeto de estudio que no ha sido respondido aún con la información existente y por lo tanto motiva la búsqueda de más información (nuevos experimentos o muestreos) para verificar las posibles respuestas o modelos que nos permitan representarlo (hipótesis). De este modo, a partir de la identificación del problema o pregunta de estudio ponemos de relieve cual es la información que debemos recolectar, cuales son las variables que intervienen en el proceso, cuales hay que controlar y cuales hay que alterar para ver la resupuesta, que tipo de datos se van a trabajar, etc. 
+2. **Recolección de los datos.** Una vez definido el problema de estudio, necesitamos determinar de qué manera se colectará la información relevante. Para ello debemos diseñar muestreos o experimentos que permitan de manera costo efectiva obtener la mayor cantidad de información empleando el menor tiempo y dinero para lograr responder de manera precisa la pregunta que originó el estudio. La estadísitca brinda herramientas para el esto.
 
-2. **Recolección de los datos.** Una vez definido el problema de estudio, necesitamos determinar de que manera se colectará la información relevante. Para ello debemos diseñar muestreos o experimentos que permitan de manera costo efectiva, obtener la mayor cantidad de información empleando el menor tiempo y dinero para logarar responder de manera precisa la pregunta que originó el estudio. La estadísitca brinda herramientas para el esto.
+3. **Resumen de la información.** con los datos en mano debemos organizadorlos y resumirlos mediante técnicas núméricas o gráficas para facilitar su exploración y el reconocimiento de las principales características o patrones de los mismos (tendencias, variabilidad, anomalías, etc.). La _estadística descriptiva_ brinda las herramientas necesarias para la descripción de la información proveniente de muestreos o experimentos.
 
-3. **Resumen de la información.** Luego de recolectar los datos, debemos organizadorlos y resumirlos mediante técnicas núméricas o gráficas para facilitar su exploración y el reconocimiento de las principales características o patrones de los mismos (tendencias, variabilidad, anomalías, etc.). La _estadística descriptiva_ brinda las herramientas necesarias para la descripción de la información proveniente de muestreos o experimentos.
-
-4. **Análisis, interpretación y comunicación de los resultados.** Los datos provenientes de muestreos o experimentos son una pequeña parte (_muestra_) de un conjunto más grande (_población_) el cual es imposible observar en su totalidad. Debemos analizar la información de la muestra para realizar generalizaciones y poder interpretar los resultados en la población. La estadística inferencial brinda herramientas para estimar y valorar los modelos definidos en la Etapa 1 a la luz de los datos recolectados en la Etapa 2 considerando la variabilidad del proceso que los generó. 
+4. **Análisis, interpretación y comunicación de los resultados.** Los datos obtenidos son una pequeña parte (_muestra_) de un conjunto más grande (_población_) el cual es imposible observar en su totalidad. Debemos analizar la información de la muestra para realizar generalizaciones y poder interpretar los resultados en la población. La _estadística inferencial_ brinda herramientas para estimar y valorar los modelos definidos en la Etapa 1 a la luz de los datos recolectados en la Etapa 2 considerando la variabilidad del proceso que los generó. 
 
 ## Variables
 
@@ -43,23 +42,24 @@ Según la cantidad de información que contienen (de menor a mayor) las variable
 - **De intervalo**: cuantitativa, orden y distancias (_fecha del último parto_)
 - **De razón**: cuantitativa, orden, distancia y proporciones (_días desde el último parto_)
 
-La escala de medición determina la cantidad de información que tienen y que métodos podemos aplicar. Siempre podemos analizar variables más completas con técnicas de variables más simples. No obstante, este procedimiento implica que perdamos información. Por ejemplo, una variable numérica de intervalo o razón podemos convertirla en nominal u ordinal generando intervalos de clases y contabilizar las frecuencias de cada clase. Por el contrario, las variables más simples no pueden ser analizadas con técnicas diseñadas para variables más completas. Ejemplo: no podemos obtener el promedio de una variable _nominal_ como el color de pelo.
+La escala de medición determina la cantidad de información que tienen y qué métodos podemos aplicar. Siempre podemos analizar variables más completas con técnicas para variables más simples. No obstante, este procedimiento implica pérdida información que puede ser relevante para responder la pregunta de investigación. Por ejemplo, una variable numérica de intervalo o razón podemos convertirla en nominal u ordinal generando intervalos de clases y contabilizar las frecuencias de cada clase. Por el contrario, las variables más simples no pueden ser analizadas con técnicas diseñadas para variables más completas. Ejemplo: no podemos obtener el promedio de una variable _nominal_ como el color de pelo.
 
 ## Población y muestra
 
 Desde el punto de vista estadístico, una **Población** es la totalidad de las unidades u observaciones individuales sobre la cuales queremos _realizar la inferencia_. Está _definida en el tiempo y espacio_ y se caracteriza por sus _parámetros_, i.e. la media $\mu$. Las poblaciones pueden ser finitas, i.e. podemos contar la totalidad de elementos que contienen, o infinita, i.e. no los podemos contar. En la mayoría de los casos, los métodos estadísticos asumen que la población es infinita o finitas pero tan grandes que a los efectos prácticos puede asumirse que son infinitas.
 
-Por su parte, una **muestra** es un subconjunto de individuos u observaciones individuales que elegimos de la población. Las muestras son finitas y se caracterizan por sus _estadísticos_  que son la versión muestral de los parámetros poblacionales, i.e. la media muestral $\bar{y}$. Si el procedimiento que utilizamos para obtener la muestra es aleatorio entonces podemos asumir que la muestra tendrá las mismas propiedades que la población y por lo tanto podemos usar dicha información para inferencia características de la poblaicón. 
+Por su parte, una **muestra** es un subconjunto de individuos u observaciones individuales que elegimos de la población. Las muestras son finitas y se caracterizan por sus _estadísticos_  que son la versión muestral de los parámetros poblacionales, i.e. la media muestral $\bar{y}$. Si el procedimiento que utilizamos para obtener la muestra es aleatorio entonces podemos asumir que la muestra tendrá las mismas propiedades que la población y por lo tanto podemos usar dicha información para inferencia características de la poblaicón. En el siguiente gráfico resume el concepto general de la inferencia estadística. 
 
-En el siguiente gráfico resume el concepto general de la inferencia estadística. Supongamos que queremos conocer el valor medio de las alturas (_parámetro_) en m de plantas de maíz de un lote de 50 has, i.e. $\mu = ?$. El conjunto más grande denominado _Población_ contiene las alturas en m de todas las plantas de maíz del lote en estudio y sobre el que se quiere hacer la inferencia (los $\dots$ indican que en el gráfico no están representados todos los valores). Cada planta es una _unidad de muestreo_ porque la elegimos individualmente, y una _unidad observacional_ porque a cada planta le medimos la altura (observación). Aquellas alturas en rojo corresponden a las 6 plantas que seleccionamos mediante un _muestreo aleatorio_ para componer la muestra ($n = 6$). La altura promedio de las plantas de la muestra (_estadístico_) es $\bar{y} = 1.728$. Dado que el muestreo fue realizado al azar, el estadístico calculado a partir de la muestra brinda información sobre lo que pasa a nivel poblacional ($\mu$). A su vez, la aleatoriedad del muestreo determina que si repitieramos el muestreo de 6 unidades muchas veces, el estadístico muestral tomaría distintos valores cada vez ya que es una _variable aleatoria_. Finalmente, a partir de la _distribución de probabilidades_ asociada a los posibles valores que tomaría el estadístico muestral podemos realizar la inferencia sobre el parámetro poblacional incorporando la variabilidad del muestreo.
-
-```{r, fig.cap="Esquema del proceso de inferencia estadística", out.width="80%"}
+```{r, fig.cap="Esquema del proceso de inferencia estadística", out.width="80%", echo = F}
 include_graphics("images/poblacion_muestra_venn.svg",  auto_pdf = T)
 ```
 
+Supongamos que queremos conocer el valor medio de las alturas (_parámetro_) en m de plantas de maíz de un lote de 50 has, i.e. $\mu = ?$. El conjunto más grande denominado _Población_ contiene las alturas en m de todas las plantas de maíz del lote en estudio y sobre el que se quiere hacer la inferencia (los $\dots$ indican que en el gráfico no están representados todos los valores). Cada planta es una _unidad de muestreo_ porque la elegimos individualmente, y una _unidad observacional_ porque a cada planta le medimos la altura (observación). Aquellas alturas en rojo corresponden a las 6 plantas que seleccionamos mediante un _muestreo aleatorio_ para componer la muestra ($n = 6$). La altura promedio de las plantas de la muestra (_estadístico_) es $\bar{y} = 1.728$. Dado que el muestreo fue realizado al azar, el estadístico calculado a partir de la muestra brinda información sobre lo que pasa a nivel poblacional ($\mu$). A su vez, la aleatoriedad del muestreo determina que si repitieramos el muestreo de 6 unidades muchas veces, el estadístico muestral tomaría distintos valores cada vez ya que es una _variable aleatoria_. Finalmente, a partir de la _distribución de probabilidades_ asociada a los posibles valores que tomaría el estadístico muestral podemos realizar la inferencia sobre el parámetro poblacional incorporando la variabilidad del muestreo.
+
+
 ## Estadística descriptiva
 
-Conjunto de técnicas y métodos para organizar, resumir y describir los datos.
+La Estadística Descriptiva la rama de la Estadísica que comprende las técnicas y métodos para organizar, resumir y describir conjuntos de datos de distinto tipo recolectados en muestreos o censos. 
 
 ### Tablas de frecuencias
 
@@ -67,110 +67,443 @@ Conjunto de técnicas y métodos para organizar, resumir y describir los datos.
 \newcommand{\LS}{\text{LS}}
 \newcommand{\MC}{\text{MC}}
 
-Una tabla de frecuencias es un listado de los valores de la variable (individuales o agrupados en **clases**) y sus **frecuencias** o conteos correspondientes. Es útil para resumir variables categóricas, discretas o conjuntos de datos cuantitativos contínuos grandes $n > 25$. 
+Conocer la distribución de los valores de las variables en estudio es importante para examinar algunas características tales como la tendencia central, la dispersión, presencia de valores atípicos, etc. 
 
-Se definen varios tipos de frecuencias: 
+Una forma de examinar al distribución es mediante _tablas de frecuencias_ que consisten en el listado de los valores de la variable (individuales o agrupados en **clases**) y sus **frecuencias** o conteos correspondientes. Es útil para resumir variables categóricas, discretas o conjuntos de datos cuantitativos contínuos grandes $n > 25$. 
 
-- **Frecuancias simples**: número de veces que un valor o clase está representado en la muestra o población. 
-  - _Absolutas_ si se expresan como conteo ($f_i$) 
-  - _Relativas_ si es en relación al total de observaciones ($h_i = f_i/n$)
-
-- **Frecuencias acumuladas**: número de veces que un valor o clase y los anteriores están representado en la muestra o población.
-  - _Absolutas_ si se expresan como conteo ($F_i$) 
-  - _relativas_ si es en relación al total de obsevraciones ($H_i = F_i/n$)
-
-El intervalo que define a una clase tiene **límites de clase**, siendo límites inferior ($\LI$) y superior ($\LS$), siendo generalmente semiabiertos a derecha `[ )`. La diferencia o distancia entre dos $\LI$ o $\LS$ consecutivos se denomina **amplitud de clase**, $c = \LI_{i} - \LI_{i-1}$ y la **marca de clase** es el valor central de la clase, i.e. promedio entre los límites o bien $\MC = \LI + 0.5 c$
-
-Si bien no hay un criterio estricto para determinar el número de clases, generalmente entre 5 y 20 clases de igual amplitud es adecuado. 
-
-Mediante el En el ejemplo de CO del suelo, dado que la muestra tiene 40 observaciones se podría examinar la distribución de frecuencias
+Las frecuencias representan el número de veces que un valor o clase está representado en la muestra o población. Para ejemplificar la construcción de tablas de frecuencias en **R** usaremos datos de pesaje de terneros de un establecimiento ganadero del norte de Santa Fe. Los datos encuentran en el archivo [`pesada_terneros.xlsx`](https://github.com/agustin-alesso/intro_DOE_R/raw/master/data/pesada_terneros.xlsx). 
 
 ```{r, eval = F, echo = T}
 # Cargar los datos
 library(readxl)
-lotes <- read_excel("Lotes_CO.xls")
-lotes
+terneros <- read_excel("pesada_terneros.xlsx")
+terneros
 ```
 
 ```{r, eval = T, echo = F}
 # Cargar los datos
 library(readxl)
-lotes <- read_excel("./data/Lotes_CO.xls")
-lotes
+terneros <- read_excel("./data/pesada_terneros.xlsx")
+terneros
 ```
 
-## 
+Primero hay que definir el número de ***intervalos de clases** y sus **límites de clase** (inferior $\LI$ y superior $\LS$). Generalmente se consideran semiabiertos a derecha `[ )` y si bien no hay un criterio estricto para determinar el número de clases, se recomiendan entre 5 y 20 clases de igual amplitud es adecuado. El número depende de la dispersión total de los datos y la cantidad de datos.
+
+Una forma de hacerlo es mediante la función `pretty()` que utiliza un algoritmo para obtener números de clases que tengan límites _redondo_. Con el argumento `n = 8` se le sugiere un número tentativo de clases. El algoritmo en función de la variabiliad de los datos puede sugerir más o menos intervalos.
 
 ```{r, eval = T, echo = T}
 # Definir los intervalos
-lim <- with(lotes, pretty(CO, n = 8))
+lim <- with(terneros, pretty(Peso, n = 8))
 lim
-
-# Dividir los datos en clases
-library(dplyr)
-lotes <- mutate(lotes, clases = cut(CO, breaks = lim, include.lowest = T, right = F))
-lotes
 ```
 
-A cada observación se agrega una variable categórica que indica a que clase pertenece.
+La diferencia o distancia entre dos $\LI$ o $\LS$ consecutivos se denomina **amplitud de clase**, $c = \LI_{i} - \LI_{i-1}$ y la **marca de clase** es el valor central de la clase, i.e. promedio entre los límites o bien $\MC = \LI + 0.5 c$. En este caso la amplitud de las clases sugeridas por `pretty()` es de 50 kg. Las marcas de clases se obtienen sumando media amplitud a los límites inferiores.
 
-## 
+```{r}
+c <- 50
+mc <- lim[1:7] + 0.5 * c
+mc
+```
 
-Luego agrupando por cada `clase` y haciendo el conteo se obtiene las frecuencias `n`
+con los límites definidos se debe categorizar o discretizar la variable contínua, es decir, transformar el vector `Peso` en un vector contenga el intervalo al que pertenece cada valor de peso observado. Esto se hace con la función `cut()` indicando los límites de clase en `breaks`. El argumento `include.lowest = T` es para aseguramos que todos los datos sean incluidos en las clases y `right = F` para que los intervalos no sean cerrados a derecha, es decir, que sean semi-abiertos a derecha. Con la función `mutate()` de `dplyr` creamos una nueva columna en el set de datos con las clases que contiene.
+
+```{r}
+# Dividir los datos en clases
+library(dplyr)
+terneros <- mutate(terneros, clases = cut(Peso, breaks = lim, include.lowest = T, right = F))
+terneros
+```
+
+De este modo cada valor de peso queda asociado a una clase. Luego haciendo el conteo de clases se obtiene las frecuencias usando `n`
 
 ```{r}
 # Obtener frecuencias simples absolutas
-tabla <- group_by(lotes, clases)
-tabla <- summarise(tabla, f = n())
+tabla <- count(terneros, clases)
 tabla
 ```
 
-Como no aparece la categoría `[4.5, 5)` hay que agregarla usando `complete()`
+como no aparece la categoría `[300, 350)` hay que agregarla usando `complete()` del paquete `tidyr`.
 
 ```{r}
 # Rellenar con clases faltantes
 library(tidyr)
-tabla <- complete(tabla, clases, fill = list(f = 0))
+tabla <- complete(tabla, clases, fill = list(n = 0))
 tabla
 ```
 
-##
+Esta tabla representa la distribución de los valores de cos de terneros. Se observa que la mayoría de los animales registró un peso de entre 150 y 200 kg ya que es el intervalo más frecuente. Existen algunos pocos terneros con cos llamativamente bajos y altos. La gran mayoría de los cos fueron entre 100 y 250 kg.
 
-```{r}
-# Calcular marcas de clase: LI + 1/2 amplitud clase
-c <- 0.5
-mc <- lim[1:9] + 0.5 * c
-mc
+Las frecuencias definidas hasta aquí se denominan **frecuencias simples absolutas**  ya que representan el conteo de las cases. Cuando ese conteo se expresa en relación al total pasan a ser **frecuencias simples relativas** ($h_i = n_i/n$). Estas frecuencias pueden se pueden expresar de manera que muestren el número de veces que un valor o clase y los anteriores están representado en la muestra o población. Así se obtienen las **frecuencias acumuladas absolutas** ($F_i$) y **relativas** ($H_i = F_i/n$).
 
-# Agregar marcas de clase
-tabla$mc <- mc
-tabla
-```
-
-## 
+Para agregar estas frecuencias y marcas de clase: 
 
 ```{r}
 # Agregar otras frecuencias
-tabla <- mutate(tabla, F = cumsum(f), h = f/sum(f), H = F/sum(f))
+tabla <- mutate(tabla, mc = mc, F = cumsum(n), h = n/sum(n), H = F/sum(n))
 tabla
 ```
 
-_¿Que nos dice esta tabla?_
+Esta tabla nos permite conocer cerca del 50% de los datos estan contenidos en el rango `[150, 200)` kg.
 
+Los comandos anteriormente vistos se pueden encadenar con el operador `%>%` para obtener de manera más compacta la tabla anterior:
+
+```{r}
+# Paquetes necesarios
+library(dplyr)
+library(tidyr)
+
+# Limites y marcas de clase
+lim <- pretty(terneros$Peso, n = 8)
+c <- 50
+mc <- lim[1:7] + 0.5 * c
+
+# Tabla de frecuencias
+tabla <- terneros %>%
+  mutate(clases = cut(Peso, breaks = lim, include.lowest = T, right = F)) %>%
+  count(clases) %>%
+  complete(clases, fill = list(n = 0)) %>%
+  mutate(mc = mc, F = cumsum(n), h = n/sum(n), H = F/sum(n))
+tabla
+```
 
 ### Gráficos
 
-- Histogramas
-- Gráficos de barras
-- Box-plots
-- Dispersión
+
+La distribución de los datos también se puede representar de manera gráfica. Existen varias técnicas que se complementan. 
+
+#### Histograma
+
+El **histograma** es la representación gráfica de la tabla de frecuencias vista anteriormente. Consiste en graficar las frecuencias (simples, absolutas o relativas) mediante barras sobre un eje horizontal que representa la variable en estudio. La altura de las barras representa las frecuencias y el ancho la amplitud del intervalo de clase.
+
+En **R** mediante el paquete `ggplot2` podemos graficar histogramas con distinta cantidad y amplitud de clases combinando los argumentos `bins` y `binwidth`. Por ejemplo, un histograma con 8 clases para los datos peso de terneros sería:
+
+```{r}
+library(ggplot2)
+p <- ggplot(terneros) + aes(x = Peso)
+p + geom_histogram(bins = 8)
+```
+
+Achicando el ancho de clases:
+
+```{r}
+p + geom_histogram(binwidth = 25)
+```
+
+En el caso de variabls discretas, las barras se grafican separadas. Supongamos que queremos graficar las frecuencias de la variable `Procedencia`.
+
+```{r, echo = F}
+p <- ggplot(terneros) + aes(x = Procedencia)
+p + geom_bar() + labs(y = "Frecuencia")
+```
 
 ### Medidas de resumen
 
-- Tendencia central: media, mediana, modo
-- Dispersión: varianza (desvío), rango, rango intercuartílico
-- Posición: percentiles
-- Forma: sesgo o asimetría y curtosis
+Las medidas de resumen son funciones que permiten extraer información relevante de la distribución de los datos y expresarla de manera resumida mediante números. De acuerdo a la característica de la distribución que resumen se pueden clasificar en medidas de: **tendencia central**, **dispersion**, **posición**  y **forma**
+
+**Algo de notación**
+
+Si $X$ es un vector que representa una muestra con $n$ observaciones, cada elemento de $X$ se identifica por su orden mediante $X_i$ donde $i$ es la posición de la i-ésima observación.
+
+**Ejemplo:** si $X = [1.73, 1.84, 1.92, 2]$ son las alturas de 4 plantas de maiz, la altura de la planta 3 es $X_i = 1.92$
+
+**R** representa los datos de manera parecida:
+
+```{r}
+x <- c(1.73, 1.84, 1.92, 2)
+x[3]
+```
+
+
+#### Medidas de tendencia central
+
+Resumen comportamiento de los datos más frecuentes, hacia donde se centra la distribución. Existen varias medidas las más comunes son la media, mediana y modo.
+
+La **media aritmética**, es el centro de gravedad de los datos. Se define como el cociente entre la suma de los valores de la muestra y la cantidad observaciones:
+
+$$
+\bar{X} = \dfrac{1}{n} \sum_i^n x_i = \dfrac{\sum x_i}{n} = \dfrac{x_1 + x_2 + \cdots + x_n}{n}
+$$
+
+**Ejemplo:** Los cos de 5 novillos son: 250, 230, 280, 235, 260. El peso promedio es:
+
+$$
+\bar{X} = \dfrac{250 + 230  + 280 + 235 + 260}{5} = `r mean(c(250, 230, 280, 235, 260))`
+$$
+
+Es la medida más común para representar la tendencia central de los datos y es fácil de calcular. Es un buen estimador de la media poblacional ($\mu$). No obstante, es sensible a los valores extremos.
+
+En **R** la función que calcula la media se denomina `mean()`
+
+```{r}
+# peso promedio
+mean(terneros$Peso)
+```
+
+En promedio los terneros pesaron l82.65 kg.
+
+Por su parte la **mediana** es el valor que separa al conjunto de datos (ordenados) en dos partes iguales. Es una medida robusta ya que no es afectada por los valores extremos.
+
+$$ 
+\tilde{X} = \begin{cases} \dfrac{x_{n/2} + x_{(n/2)+1}}{2} &\text{si n es par} \\
+x_{(n+1)/2} &\text{si n es impar}
+\end{cases}
+$$
+
+Si $n$ es par, $\tilde{X}$ es el promedio de los valores centrales (posiciones $n/2$ y $(n/2)+1$). Si $n$ es impar, $\tilde{X}$ es el valor ubicado en la posicion $(n+1)/2$
+
+En **R** la función que calcula la mediana se denomina `median()`:
+
+```{r}
+# peso mediano
+median(terneros$Peso)
+```
+
+El 50% de los terneros pesó igual o menos de 180 kg.
+
+#### Medidas de dispersión 
+
+Son medidas que resumen el grado de variabilidad de los datos. Entre las más comunes se encuentran el **rango**, **varianza** y **desviación estándar**.
+
+El **rango** se define como la diferencia entre el valor máximo y mínimo de los datos. Es una medida muy simple pero altamente sensible a valores extremos ya que solamente usa la información del mínimo y máximo.
+
+$$
+\text{rango} = \text{max}(X) - \text{min}(X)
+$$
+
+En **R** el rango se obtiene de la misma manera mediante las funciones `max()` y `min()`.
+
+```{r}
+# Calculo del rango
+with(terneros, max(Peso) - min(Peso))
+```
+
+Una medida mejor para expresar la variabilidad es la **varianza** ($s^2$) que se define como el promedio de las desviacione cuadráticas de las observaciones respecto de la media. 
+
+$$
+s^2 = \dfrac{\sum (x_i - \bar{X})^2}{n-1} = \dfrac{1}{n-1} \left[ \sum x_i^2 - \dfrac{(\sum x_i)^2}{n} \right]
+$$
+
+El denominador $n-1$ representa los grados de libertad, es decir, el número de datos de la muestra que pueden variar cuando se usa el estimador de la media $\bar{X}$. 
+
+Dado que los desvíos respecto del promedio tienen la propiedad de cancelarse $\sum (x_i - \bar{x}) = 0$ los desvíos se deben elevar al cuadrado y esto a convierte una medida muy sensible a valores extremos.
+
+La **desviación estándar** ($s$) es la raiz cuadrada de la varianza 
+
+$$
+s = \sqrt{s^2}
+$$
+
+La desviación estándar es interpretable ya que está en la escala original. Al igual que la varianza es sensible a valores extremos ya que utiliza $\bar{X}$ y los desvíos elevados al cuadrado.
+
+En **R** la varianza y desvio se obtienen con `var()` y `sd()`.
+
+```{r}
+# Varianza
+var(terneros$Peso)
+
+# Desvío
+sd(terneros$Peso)
+```
+
+Si bien la desviación estándar es interpretable ya que está en la misma escala que la variable original, a veces es conveniente expresarle en relación al promedio de los datos para compararlo con otros datos o variables. El **coeficiente de variación** ($CV$) es una media de dispersión relativa para comparar la variabilidad entre muestras.
+
+$$
+CV = \dfrac{s}{\bar{X}}
+$$
+
+En **R** podemos obtenerlo combinando las funciones `sd()` y `mean()`
+
+```{r}
+# CV de los cos
+with(terneros, sd(Peso)/mean(Peso))
+```
+
+Los pesos de los terneros varían un 20% en torno al promedio.
+
+#### Medidas de posición
+
+Los cuantiles son una generalización del concepto de la mediana. En **R** se calculan con la función `quantile()`. Cuando los datos se dividen en cuatro partes iguales se llaman **cuartiles** $(Q_i)$, si se divide en 10 partes iguales son **deciles** ($D_i$)  y para 100 partes iguales **percentiles** ($P_i$). 
+
+$$
+\tilde{X} = Q_2 = D_5 = P_{50}
+$$
+
+Una medida importante es el rango intercuartílico ($IQR$) que indica entre que valores se encuentra el 50% central de la distribución de los datos
+
+$$
+IQR = Q_3 - Q_1
+$$
+
+Por ejemplo para obtener los valores de peso que separa a la muestra en 4 partes iguales:
+
+```{r}
+with(terneros, quantile(Peso, probs = c(0.25, 0.50, 0.75)))
+```
+
+o bien, ¿cuánto pesa el ternero más liviano del 20% de los terneros más pesados? Eso sería el percentil 0.8.
+
+```{r}
+with(terneros, quantile(Peso, prob = 0.8))
+```
+
+Para obtener el percentil que corresponde a un dato particular de la muestra se usa la _función empírica de distribución acumulada_.
+
+```{r}
+# Obtener la ECDF
+ecdf_peso <- ecdf(terneros$Peso)
+
+# Obtener el percentil del peso = 213.2
+ecdf_peso(213.2)
+```
+
+### Gráfico de caja
+
+Es una técnica propuesta por John Tukey para representar la distribución de los datos mediante un gráfico  exploratorio basado en medidas robustas (mediana, cuartiles, etc). Permite ver la región central de los datos, el sesgo y la presencia datos atípicos leves y moderados
+
+```{r, echo = F, fig.height=2}
+set.seed(1)
+x <- c(rnorm(30, mean = 20, sd = 5), 40, 50)
+
+# Medidas
+q <- boxplot.stats(x)$stats
+outs <- boxplot.stats(x)$out
+riq <- IQR(x)
+
+# Vallas
+VEI <- q[2] - 3*riq 
+VES <- q[4] + 3*riq 
+VII <- q[2] - 1.5*riq 
+VIS <- q[4] + 1.5*riq 
+
+# Gráfico
+boxplot(x, horizontal = T, range = 1.5, ylim = c(0, 55))
+abline(v = c(VEI, VII, VIS, VES), lty = 2)
+text(c(VEI, VII, VIS, VES), 1.5, labels = c("VEI", "VII", "VIS", "VES"),pos = c(2,2, 4,4))
+text(q[3],1.25, labels = "Mna")
+text(c(q[2], q[4]), 0.75, labels = c(expression(Q[1]), expression(Q[3])))
+segments(x0 = q[2], y0 = 0.7, x1 = q[4], y1 = 0.7)
+text(q[3], 0.7, labels = "RIQ", pos = 1)
+text(q[c(1, 5)],1.1, labels = "Ady", pos =3)
+text(outs,1, labels = c("outlier \n leve", "outlier \n leve", "outlier \n extremo"), pos = 1)
+```
+
+
+En el caso de los terneros, la distribución de los pesos se puede representar con un gráfico de cajas usando `geom_boxplot()`
+
+```{r, fig.height = 2}
+# Boxplot peso terneros
+ggplot(terneros, aes(x = "", y = Peso)) +
+  geom_boxplot() + 
+  coord_flip()
+```
+
+Según este gráfico el 50% de la distribución esta entre `r round(quantile(terneros$Peso, 0.25), 2)` y `r round(quantile(terneros$Peso, 0.75), 2)` y el sesgo es pequeño. Por defecto el gráfico de caja muestra los valores atípicos leves y extremos ya que toma 1.5 veces el rango intercuartilico. Para determinar si hay valores atípicos extremos se puede usar el argumento `coef = 3`.
+
+```{r, fig.height = 2}
+# Boxplot peso terneros con rango = 3
+ggplot(terneros, aes(x = "", y = Peso)) +
+  geom_boxplot(coef = 3) + 
+  coord_flip()
+```
+
+El valor `peso = 384` es un outlier extremo.
+
+### Medidas de forma 
+
+Las medidas de forma resumen otros aspectos de la distribución como el sesgo o asimetría o la variabilidad en distribuciones unimodales o kurtosis. 
+
+La **asimetría** de una distribución hace referencia a como se distribuyen los valores en torno a la media.
+En una distribución simétrica, la mitad izquierda es identica a la mitad derecha.
+
+```{r, echo = F, fig.height = 3}
+set.seed(1)
+x <- seq(0, 1, by = 0.01) 
+x_sim <- dbeta(x, 5, 5)
+x_neg <- dbeta(x, 5, 2)
+x_pos <- dbeta(x, 2, 5)
+par(mfcol = c(1,3), xaxt = "n", yaxt = "n")
+plot(x, x_sim, main = "Media = Mediana = Modo", xlab = "", ylab = "", type = "l")
+abline(v = c(0.5, 0.5), lty = c(1,2))
+plot(x, x_neg, main = "Media > Mediana > Modo", xlab = "", ylab = "", type = "l")
+abline(v = c(0.8, 0.6), lty = c(1,2))
+plot(x, x_pos, main = "Media > Mediana > Modo", xlab = "", ylab = "", type = "l")
+abline(v = c(0.4, 0.2), lty = c(1,2))
+```
+
+La **kurtosis** indica cuanto se concentran los valores en torno a la media. Las distribuciones leptocurticas tienen menor variabilidad. Lo opuesto ocurre con las platicurticas.
+
+```{r, echo = F, fig.height = 3}
+set.seed(1)
+x_normal <- rnorm(100, 50, 10)
+x_plat <- rnorm(100, 50, 40)
+x_lept <- rnorm(100, 50, 1)
+par(mfcol = c(1,3), xaxt = "n", yaxt = "n")
+plot(density(x_normal, bw = 30), main = "Normal", xlab = "", ylab = "", xlim = c(-50, 150)) 
+plot(density(x_plat, bw = 30), main = "Platicurtica", xlab = "", ylab = "", xlim = c(-50, 150))
+plot(density(x_lept, bw = 30), main = "Leptocurtica", xlab = "", ylab = "", xlim = c(-50, 150))
+```
+
+Hay varias formas de calcular los coeficientes de asimetría y kurtosis. Una de ellas deriva de los momentos estandarizados:
+
+$$
+m_k = \dfrac{\sum (X_i - \bar{X})^k}{n}
+$$
+
+Si $k = 1$, $m = 0$ dado que $\sum (X_i - \bar{X}) = 0$. En cambio, si $k = 2$, $m$ es igual al estimador sesgado de la varianza poblacional. Así los momentos 3 y 4 tienen información sobre la asimetría y curtosis.
+
+El coeficiente $\sqrt{b_1}$ indica la asimetría:
+
+$$
+\sqrt{b_1} = \dfrac{m_3}{\sqrt{m_2^3}} = \dfrac{\sqrt{n} \sum (X_i - \bar{X})^3}{\sqrt{ \left[ \sum(X_i - \bar{X})^2 \right]^3}}
+$$
+
+- Si $\sqrt{b_1} = 0$ la distribución es simétrica
+- Si $\sqrt{b_1} > 0$ la distribución es sesgada a derecha
+- Si $\sqrt{b_1} < 0$ la distribución es sesgada a izquierda
+
+El coeficiente $b_2$ indica la kurtosis
+
+$$
+b_2 = \dfrac{m_4}{m_2^2} = \dfrac{n \sum (X_i - \bar{X})^4}{\left[ \sum(X_i - \bar{X})^2 \right]^2}
+$$
+
+- Si $b_2 = 3$ la distribución es normal
+- Si $b_2 > 3$ la distribución es leptocirtoca
+- Si $b_2 < 3$ la distribución es platocurtica
+
+En **R** los coeficientes de kurtosis y asimetría se obtienen del as funciones `skewness()` y `kurtosis()` del paquete `moments`:
+
+```{r}
+library(moments)
+
+# asimetría
+skewness(terneros$Peso)
+
+# kurtosis
+kurtosis(terneros$Peso)
+```
+
+
+### Todas las medidas juntas
+
+Usando la función `summarise()` de `dplyr` se pueden calcular una o más estadísticas de resumen y resumirlas en forma de tabla. Asímismo también pueden calcularse por subconjuntos.
+
+```{r}
+library(moments)
+
+# General
+terneros %>%
+  summarise(n = length(Peso), media = mean(Peso), mediana = median(Peso), desv = sd(Peso),
+            min = min(Peso), max = max(Peso), IQR = IQR(Peso), Q20 = quantile(Peso, 0.2),
+            Q80 = quantile(Peso, 0.8), asim = skewness(Peso), kurt = kurtosis(Peso))
+
+# Estadítica de resumen por Procedencia
+terneros %>%
+  group_by(Procedencia) %>% 
+  summarise(n = length(Peso), media = mean(Peso), mediana = median(Peso), desv = sd(Peso),
+            min = min(Peso), max = max(Peso), IQR = IQR(Peso), Q20 = quantile(Peso, 0.2),
+            Q80 = quantile(Peso, 0.8), asim = skewness(Peso), kurt = kurtosis(Peso))
+```
 
 ## distribuciones (directamente la normal y TCL)
 
