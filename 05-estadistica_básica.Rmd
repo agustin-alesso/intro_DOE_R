@@ -509,4 +509,770 @@ terneros %>%
 
 ## IC
 
-## Test hipotesis
+## Test hipotesis: generalidades
+
+Las pruebas de hipótesis es uno de los métodos de inferencia estadística. A diferencia de la estimación de parámetros, en una prueba de hipótesis hay una idea previa del valor del un parámetro poblacional que será contrastado con los datos obtenidos de esa población.
+
+En una prueba de hipótesis se plantean **dos modelos o hipótesis** para explicar el fenómeno o proceso en estudio que produce los datos (_población_): 
+
+$$
+H_0: \theta = \theta_0 \quad \text{vs} \quad H_1: \theta \ne \theta_0
+$$
+
+La **hipótesis nula** $H_0$ es la que se usa para construir el modelo de la población con la idea de verificar su falsedad. Refleja un pensamiento escéptico. La **hipótesis alternativa o de investigación** $H_1$ es la alternativa a considerar en caso de rechazar $H_0$. La _evidencia empírica_ que sustenta o rechaza el modelo nulo $H_0$ se obtiene de una muestra aleatoria de la población sobre la cual se quiere inferir. 
+
+Una prueba de hipótesis estadística se basa en el concepto de **prueba por contradicción**, es decir que se evalúa la $H_1$ probando o no la falsedad de $H_0$. Esto involucra:
+
+1. Formular las hipótesis $H_1$ y $H_0$
+2. Cálcular el estadístico de prueba apropiado, e.g. $Z_{\theta_0}$
+3. Determinar la zona de rechazo y regla de decisión.
+4. Chequear de supuestos
+5. Concluir 
+
+### ¿Cómo se formulan las hipótesis? 
+
+Las hipótesis pueden formularse teniendo los siguientes criterios generales:
+
+1. La afirmación de que $\theta$ es igual a un determinado valor **siempre** tiene que estar incluida en $H_0$. El valor hipotético de $\theta$ en $H_0$ es el **valor nulo** $\theta_0$
+2. La afirmación sobre $\theta$ que se quiere soportar or detectar con los datos es la $H_1$
+3. La negación de $H_1$ es la $H_0$
+4. La $H_0$ se presume correcta a menos que hay evidencia suficiente para rechazarla en pos de la $H_1$
+
+**Ejemplos 1** Un edafólogo quiere evaluar si el contenido de N total de los suelos de una región es igual o inferior a 0.12%. Como su hipótesis de trabajo contiene la igualdad, entonces $H_0: \mu \le 0.12\% \quad \text{vs} \quad H_1: \mu > 0.12\%$
+
+**Ejemplos 2** Otro edafólogo quiere evaluar si el contenido de N total es menor a 0.12%. En este caso, la hipótesis de trabajo no incluye la igualdad, entonces: $H_0: \mu \ge 0.12\% \quad \text{vs} \quad H_1: \mu < 0.12\%$.
+
+**Ejemplo 3** A un tercero le interesa saber si el nivel de N total es distinto de 0.12%. Como la hipotesis de trabajo plantea la desigualdad, entonces, $H_0: \mu  = 0.12\% \quad \text{vs} \quad H_1: \mu \ne 0.12\%$
+
+### Estadístico de prueba
+
+El estadísico de prueba es un valor estandarizado que se calcula a partir de los datos de la muestra aplicando una función. Como la muestra es un conjunto de variables aleatorias, el resultado de la función aplicada es a su vez una **variable aleatoria** cuyos posibles valores tienen una distribución de probabilidades asociada la cual está determinada por la $H_0$ y los supuestos
+
+```{r, echo = F, fig.align = 'center'}
+z <- seq(-4, 4, by =0.01)
+d <- dnorm(z)
+alpha <- 0.05
+z_crit <- qnorm(p = 0.8)
+lbl_alfa <- c(expression(1-p), expression(p))
+
+# Gráfico
+plot(z, d, type = "l", bty = "n", axes = F, yaxs = "i", ylab = '', xaxt = 'n', xlab = NA)
+
+# Area
+z_coords <- c(z_crit, z[z <= z_crit])
+y_coords <- c(0, d[z <= z_crit])
+polygon(x = z_coords, y = y_coords, col = "gray")
+segments(x0 = z_crit, y0 = 0, x1 = z_crit, y1 = dnorm(z_crit))
+
+# Anotaciones
+lbl1 <- c(NA, expression(paste(H[0], ": ", theta, " = ", theta[0])), expression(Z[theta[0]]), NA)
+axis(side = 1, at = c(-6, 0, z_crit, 6), labels = lbl1)
+abline(v = 0, lty = 2)
+```
+
+### Zona de rechazo
+
+La zona de rechazo está compueta por los valores de la distribución del estadístico de prueba $Z_\theta$ que soportan la $H_1$ y contradicen $H_0$, es decir, los valores de $\theta$ con que permiten **rechazar** $H_0$.
+
+```{r, echo = F, fig.align = 'center'}
+z <- seq(-4, 4, by =0.01)
+d <- dnorm(z)
+alpha <- 0.05
+z_crit <- qnorm(p = 1-alpha/2)
+lbl_alfa <- c(expression(1-p), expression(p))
+
+# Gráfico
+plot(z, d, type = "l", bty = "n", axes = F, yaxs = "i", ylab = '', xaxt = 'n', xlab = NA)
+segments(x0 = z_crit, y0 = -0.5, x1 = z_crit, y1 = dnorm(z_crit), xpd = T)
+
+# Area
+z_coords <- c(z_crit, z[z >= z_crit])
+y_coords <- c(0, d[z >= z_crit])
+polygon(x = z_coords, y = y_coords, col = "gray")
+
+# Anotaciones
+lbl1 <- c(NA, expression(paste(H[0], ": ", theta, " = ", theta[0])), expression(Z[theta[0]]), NA)
+axis(side = 1, at = c(-6, 0, 6), labels = lbl1[-3])
+axis(side = 1, at = c(z_crit), labels = lbl1[3], hadj = 1.2)
+abline(v = 0, lty = 2)
+mtext(text = c("Zona de Aceptación", "Zona de Rechazo"), side = 1, line = 2,
+      at = c(z_crit - 1.5, z_crit +1.5))
+```
+
+La $H_1$ determina donde está la zona de rechazo y el sentido de la interpretación de la evidencia. De este modo las pruebas pueden ser bilaterales si $H_1: \theta \ne \theta_0$ o unilaterales izquierda $H_1: \theta < \theta_0$ o derecha $H_1: \theta > \theta_0$
+
+```{r, echo = F, fig.align = 'center', fig.height = 3, fig.width = 10}
+z <- seq(-4, 4, by =0.01)
+d <- dnorm(z)
+alpha <- 0.05
+z_crit <- qnorm(p = c(alpha/2, 1-alpha/2))
+
+par(mfcol = c(1,3), cex.axis = 1.8)
+
+# Gráfico unilateral izquierda
+plot(z, d, type = "l", bty = "n", axes = F, yaxs = "i", ylab = '', xaxt = 'n', xlab = NA,
+     main = "unilateral a izquierda")
+segments(x0 = z_crit[1], y0 = 0, x1 = z_crit[1], y1 = dnorm(z_crit[1]), xpd = T)
+z_coords <- c(z_crit[1], z[z <= z_crit[1]])
+y_coords <- c(0, d[z <= z_crit[1]])
+polygon(x = z_coords, y = y_coords, col = "gray")
+lbl1 <- c(NA, expression(Z[alpha]), expression(1-Z[alpha/2]), NA)
+axis(side = 1, at = c(-6, z_crit[1], 6), labels = lbl1[-3])
+
+# Gráfico bilateral
+plot(z, d, type = "l", bty = "n", axes = F, yaxs = "i", ylab = '', xaxt = 'n', xlab = NA,
+     main = "bilateral")
+segments(x0 = z_crit, y0 = 0, x1 = z_crit, y1 = dnorm(z_crit), xpd = T)
+z_coords1 <- c(z_crit[1], z[z <= z_crit[1]])
+y_coords1 <- c(0, d[z <= z_crit[1]])
+z_coords2 <- c(z_crit[2], z[z >= z_crit[2]])
+y_coords2 <- c(0, d[z >= z_crit[2]])
+polygon(x = z_coords1, y = y_coords1, col = "gray")
+polygon(x = z_coords2, y = y_coords2, col = "gray")
+lbl1 <- c(NA, expression(Z[alpha/2]), expression(Z[1-alpha/2]), NA)
+axis(side = 1, at = c(-6, z_crit, 6), labels = lbl1)
+
+# Gráfico unilateral derecha
+plot(z, d, type = "l", bty = "n", axes = F, yaxs = "i", ylab = '', xaxt = 'n', xlab = NA,
+     main = "unilateral a derecha")
+segments(x0 = z_crit[2], y0 = 0, x1 = z_crit[2], y1 = dnorm(z_crit[2]), xpd = T)
+z_coords <- c(z_crit[2], z[z >= z_crit[2]])
+y_coords <- c(0, d[z >= z_crit[2]])
+polygon(x = z_coords, y = y_coords, col = "gray")
+lbl1 <- c(NA, expression(Z[1-alpha/2]), NA)
+axis(side = 1, at = c(-6, z_crit[2], 6), labels = lbl1)
+```
+
+### Errores
+
+En toda prueba de hipótesis se pueden cometer errores al tomar la decisión. El tipo de error dependerá de la decisión tomada y el valor verdadero de la $H_0$. 
+
+            Decisión  $H_0$ es cierta   $H_0$ es falsa
+-------------------- ----------------- ----------------
+    se rechaza $H_0$  Error Tipo I      No hay error  
+ no se rechaza $H_0$  No hay error      Error Tipo II 
+-------------------- ----------------- ----------------
+
+Si bien no podemos conocer el verdadero valor del los parámetros poblacionales, y por lo tanto desconocemos si la $H_0$  es verdadera o falsa, es posible estimar las probabilidades de cometer los errores Tipo I y tipo II, las que se denominan $\alpha$ y $\beta$ respectivamente.
+
+Supongamos que tenemos dos hipótesis en juego $H_0: \mu = 1$ vs $H_1: \mu = 1$. El siguiente gráfico muestra las áreas sombreadas $\alpha$ y $\beta$ que representan la probabilidad de cometer error tipo I y II si tomamos la información del estadísico $z_0$ para decidir sobre $H_0$. Si el modelo válido fuera el especificado en $H_0$, el área $\alpha$ indica la probabilidad de rechazar $H_0$ cuando es verdadera. En cambio, si $H_1$ fuese verdadera, el área $\beta$ representa la probabilidad de no rechazar $H_0$ cuando esta es falsa.
+
+```{r, echo = F, fig.align = 'center', fig.height = 2, fig.cap="Distribución de probabilidades de estadístico de prueba bajo supuesto de H0 y H1"}
+par(mar = c(2, 0, 0, 0))
+z <- seq(-4, 4, by =0.01)
+d1 <- dnorm(z, mean = -1)
+d2 <- dnorm(z, mean = 1)
+alpha <- 0.05
+z_calc <- 0.45
+lbl_alfa <- c(expression(beta), expression(alpha))
+
+# Gráfico
+plot(z, d1, type = "l", bty = "n", axes = F, yaxs = "i", ylab = '', xaxt = 'n', xlab = NA)
+lines(z, d2, lty = 2)
+segments(x0 = z_calc, y0 = 0, x1 = z_calc, y1 = dnorm(z_calc, mean = 1))
+
+# Area
+z1_coords <- c(z_calc, z[z >= z_calc])
+z2_coords <- c(z[z <= z_calc], z_calc)
+y1_coords <- c(0, d1[z >= z_calc])
+y2_coords <- c(d2[z <= z_calc], 0)
+polygon(x = z1_coords, y = y1_coords, col = "gray")
+polygon(x = z2_coords, y = y2_coords, col = "light gray")
+
+# Anotaciones
+lbl1 <- c(NA, expression(z[0]), NA)
+axis(side = 1, at = c(-6, z_calc, 6), labels = lbl1)
+#abline(v = c(-1, 1), lty = 2)
+text(x = c(-0.5, 1.5), y = c(0.05, 0.05), labels = lbl_alfa)
+text(x = c(-2, 2), y = c(0.35, 0.35), labels = expression(paste("H"[0], ": ", mu, " = 0"), paste("H"[1], ": ", mu, " = 1")))
+```
+
+
+$$
+P(\text{rechazar $H_0$ | $H_0$ es cierta}) = \alpha \\
+P(\text{no rechazar $H_0$ | $H_0$ es falsa}) = \beta
+$$
+
+$\alpha$ y $\beta$ dependen de la **verdadera distancia entre las medias**, la **variabilidad de la población** en estudio y el **tamaño de la muestra**.
+
+Así como $\beta$ determina las probabilidades de cometer error tipo II, el complemento $1-\beta$ representa la probabilidad que tenemos de decidir correctamente sobre $H_0$ rechazándola cuando realmente es falsa. Esto se denomina **potencia**
+
+```{r, echo = F, fig.align = 'center', fig.height = 3}
+par(mar = c(2, 0, 0, 0))
+z <- seq(-4, 4, by =0.01)
+d1 <- dnorm(z, mean = -1)
+d2 <- dnorm(z, mean = 1)
+alpha <- 0.05
+z_calc <- 0.45
+lbl_alfa <- c(expression(1-beta), expression(alpha))
+
+# Gráfico
+plot(z, d1, type = "l", bty = "n", axes = F, yaxs = "i", ylab = '', xaxt = 'n', xlab = NA)
+lines(z, d2, lty = 2)
+segments(x0 = z_calc, y0 = 0, x1 = z_calc, y1 = dnorm(z_calc, mean = 1))
+
+# Area
+z1_coords <- c(z_calc, z[z >= z_calc])
+z2_coords <- c(z[z >= z_calc], z_calc)
+y1_coords <- c(0, d1[z >= z_calc])
+y2_coords <- c(d2[z >= z_calc], 0)
+polygon(x = z1_coords, y = y1_coords, col = "gray")
+polygon(x = z2_coords, y = y2_coords, density  = 30)
+
+# Anotaciones
+lbl1 <- c(NA, expression(z[0]), NA)
+axis(side = 1, at = c(-6, z_calc, 6), labels = lbl1)
+#abline(v = c(-1, 1), lty = 2)
+text(x = c(1.5, .75), y = c(0.15, 0.025), labels = lbl_alfa)
+text(x = c(-2, 2), y = c(0.35, 0.35), labels = expression(paste("H"[0], ": ", mu, " = 0"), paste("H"[1], ": ", mu, " = 1")))
+```
+
+$$
+P(\text{rechazar $H_0$ | $H_0$ es falsa}) = 1 - \beta
+$$
+
+Para un nivel de significancia $\alpha$ dado, la potencia se halla utilizando la distribución que asume $H_1$ como verdadera.
+
+### Regla de decisón y valores $p$
+
+**Opción 1**
+
+Fijar una valor de $\alpha$ (probabilidad de error Tipo I) y, calculando valores críticos del estadísitco $Z_\theta$, delimitar las zonas de rechazo o aceptación. 
+
+Para bilaterales:
+
+- Si $|Z_\theta| \ge z_{1-\alpha/2}$ se rechza $H_0$
+- Si $|Z_\theta| < z_{1-\alpha/2}$ no se rechza $H_0$
+
+Para unilaterales izquierda
+
+- Si $Z_\theta \ge z_{\alpha}$ no se rechza $H_0$ 
+- Si $Z_\theta < z_{\alpha}$ se rechza $H_0$
+
+Para unilaterales derecha
+
+- Si $Z_\theta \le z_{1-\alpha}$ no se rechza $H_0$
+- Si $Z_\theta > z_{1-\alpha}$ se rechza $H_0$
+
+**Opción 2**
+
+Asumiendo $H_0$ y una distribución del estadístico (e.g. Normal), se calcula la probabilidad $p$ de ocurrencia de un valor igual o más extremo (a una o dos colas).
+
+$$
+P(Z \ge Z_{\theta_0} | H_0) = p
+$$
+
+Luego:
+
+- Si $p > \alpha$, **no hay evidencias para rechazar $H_0$**, aunque no se prueba que ésta sea verdadera
+
+- Si $p \le \alpha$, **hay evidencia para rechazar $H_0$**, aunque no se esta probando que $H_0$ sea falsa o $H_1$ sea verdadera
+
+**¿Qué es el valor p?**
+
+Es la probabilidad de que, si se repite el muestreo, el estadístico de prueba a obtener sea igual o más extremo que el observado en los datos asumiendo que $H_0$ es cierta.
+
+_Si los datos no concuerdan con el modelo nulo, entonces hay evidencia para descartarlo en favor del alternativo_
+
+### Conclusiones
+
+La conclusión consta de 3 partes fundamentales:
+
+1. ¿Cuál es la decisión? ¿Que sucede con $H_0$?
+
+2. ¿Por qué se llega a esa decisión? El estadístico con valor p o bien con el valor crítico y nivel de significancia.
+
+3. Interpretación o consencuencias en el contexto del problema o pregunta de investigación
+
+Una inferencia completa es cuando además de contestar sobre 1 y 2 se agrega información sobre las consecuencias de haber recvhazado $H_0$ en el contexto del problema de investigación. Agregar información sobre la magnitud y sentido de las diferencias agregar más información a la inferencia.
+
+## Comparación de dos poblaciones
+
+### Muestras independientes
+
+```{r, echo = F, fig.height = 4}
+par(mar = c(2, 0, 0, 0))
+n <- 10
+ybar1 <- 32
+ybar2 <- 38
+ybar <- mean(c(ybar1, ybar2))
+se1 <- 8/sqrt(n)
+se2 <- 8/sqrt(n)
+se <- se1+se2
+x <- seq(20, 50, by = 0.01)
+d1 <- dnorm(x, ybar1, se1)
+d2 <- dnorm(x, ybar2, se2)
+d3 <- dnorm(x, ybar, se)
+```
+
+¿Las muestras con $\bar{y}_1$ y $\bar{y}_2$ provienen de dos poblaciones distintas con $\mu_1$ y $\mu_2$, o de una sola población con $\mu$?
+
+```{r, echo = F, fig.width=4, fig.height = 3.5}
+par(mar = c(2, 0, 0, 0))
+plot(x, d1, type = "l", bty = "n", axes = F, yaxs = "i", ylab = '', xaxt = 'n', xlab = NA, ylim = c(0, 0.25))
+lines(x, d2)
+lbl <- c(expression(mu[1]), expression(mu[2]))
+axis(side = 1, at = c(20, ybar1, ybar2, 50), labels = c(NA, lbl, NA))
+segments(x0 = c(ybar1,ybar2), y0 = 0, x1 = c(ybar1, ybar2), y1 = dnorm(x, c(ybar1, ybar2), c(se1, se2)),
+         lty = 2)
+```
+
+$$ E(\bar{y}_1) = \mu_1 \\
+E(\bar{y}_2) = \mu_2 $$
+
+```{r, echo = F, fig.width=4, fig.height = 3.5}
+par(mar = c(2, 0, 0, 0))
+plot(x, d3, type = "l", bty = "n", axes = F, yaxs = "i", ylab = '', xaxt = 'n', xlab = NA, ylim = c(0, 0.25))
+axis(side = 1, at = c(20, ybar, 50), labels = c(NA, expression(mu), NA))
+segments(x0 = ybar, y0 = 0, x1 = ybar, y1 = dnorm(x, ybar, se), lty = 2)
+```
+$$ E(\bar{y}_1) = \mu \\
+E(\bar{y}_2) = \mu $$
+
+### Modelo lineal aditivo 
+
+Las observaciones se pueden representar con un modelo estadístico.
+
+#### Modelo de medias de celda
+
+$$
+y_{ij} = \mu_i + e_{ij} \quad \quad i = 1, 2; j = 1, \dots, n_i
+$$
+
+donde: 
+
+- $y_{ij}$ es la j-ésima observación del i-ésimo tratamiento
+
+- $\mu_i$ es la media del i-ésimo tratamiento
+
+- $e_{ij}$ es el error aleatorio asociado a la j-ésima observación del i-ésimo tratamiento
+
+**Supuestos**: $e_{ij} \sim N(0, \sigma)$
+
+1. Independencia: las observaciones son independientes, i.e. $Cor(e_{ij}, e_{i'j'}) = 0$
+2. Normalidad: los residuos siguen una distribución normal
+3. Homocedasticidad: las varianzas de las poblaciones son iguales
+
+### Modelo de efectos
+
+$$
+y_{ij} = \mu + \tau_i + e_{ij} \quad \quad i = 1, 2; j = 1, \dots, n_i
+$$
+
+donde: 
+
+- $y_{ij}$ es la j-ésima observación del i-ésimo tratamiento
+
+- $\mu$ es la media general
+
+- $\tau_i$ es la desviación o efecto del i-ésimo tratamiento respecto de $\mu$, es decir $\tau_i = \mu_i - \mu$
+
+- $e_{ij}$ es el error aleatorio asociado a la j-ésima observación del i-ésimo tratamiento
+
+**Supuestos:** $e_{ij} \sim N(0, \sigma)$
+
+## Prueba hipótesis
+
+$$
+H_0: \mu_1 - \mu_2 = 0 \quad \text{o bien} \quad H_0: \tau_i = 0\\
+H_1: \mu_1 - \mu_2 \ne 0 \quad \text{o bien} \quad  H_1:\tau_i \ne 0 \\
+$$
+
+**Estadístico de prueba**
+
+$$
+t = \dfrac{(\bar{y}_1 - \bar{y}_2) - (\mu_1 - \mu_2)}{S_{\bar{y}_1 - \bar{y}_2}} \sim t_{\nu}
+$$
+
+Donde $S_{\bar{y}_1 - \bar{y}_2}$ es un estimador muestral del $\sigma_{\mu_1 - \mu_2}$ y su forma de cálculo depende de si las dos poblaciones tienen varianza común $\sigma^2_1 = \sigma^2_2 = \sigma^2$
+
+**Regla decisión**
+
+- Si $| t | > t_{\nu, 1-\alpha/2}$, entonces se rechaza $H_0$
+- Si $| t | \le t_{\nu, 1-\alpha/2}$, entonces se no rechaza $H_0$
+
+## Si $\sigma^2_1 = \sigma^2_2$
+
+Entonces $\sigma^2_{\bar{y}_1 - \bar{y}_2}$ se estima usando la información de $s^2_1$ y $s^2_2$ en una varianza _amalgamada_
+
+$$
+s^2_a = \dfrac{(n_1-1) s^2_1 + (n_2-1) s^2_2}{n_1 + n_2 - 2}
+$$
+
+y el estadístico es $t$ sigue una distribución $t$ con $n_1 + n_2 - 2$ grados de libertad
+
+$$
+t = \dfrac{(\bar{y}_1 - \bar{y}_2) - (\mu_1 - \mu_2)}{S_a \sqrt{\dfrac{1}{n_1} + \dfrac{1}{n_2}}} \sim t_{n_1 + n_2 - 2}
+$$
+
+## Si $\sigma^2_1 \ne \sigma^2_2$
+
+$\sigma^2_{\bar{y}_1 - \bar{y}_2}$ se estima usando las varianzas muestrales sin combinar y el estadístico $t$ que tiene distribución $t$ con $\delta$ grados de libertad
+
+$$
+t = \dfrac{(\bar{y}_1 - \bar{y}_2) - (\mu_1 - \mu_2)}{\sqrt{\dfrac{s^2_1}{n_1} + \dfrac{s^2_2}{n_2}}} \sim t_\delta
+$$
+
+Los grados de libertad se aproximan por _Welch-Satterwaite_:
+
+$$
+\delta = \dfrac{\left(\dfrac{s^2_1}{n_1-1} + \dfrac{s^2_2}{n_2} \right)^2}
+{\dfrac{1}{n_1-1} \left(\dfrac{s^2_1}{n_1} \right)^2 +
+\dfrac{1}{n_2-1} \left(\dfrac{s^2_2}{n_2} \right)^2}
+$$
+
+
+## Ejemplo
+
+Un mejorador de trigo desea comparar dos materiales experimentales (`Exp1` y `Exp2`) para determinar si sus rendimientos difieren significativamente fijando una probabilidad de cometer error tipo I de 5% ($\alpha$ = 0.05). Para ello, en un sector del campo experimental, delimita 20 parcelas de 2 x 4 m y siembra al azar en cada parcela una de las dos variedades. Luego, a cosecha, determina el rendimiento de cada parcela cortando espigas de 3 m^2^. Los rendimientos en qq ha^-1^ fueron:
+
+```{r, echo = F}
+library(MASS)
+library(writexl)
+
+# Simular datos
+mu <- c(40, 35)
+s <- c(10, 3)
+r <- 0.9
+Sigma <- matrix(prod(r, s), ncol = 2, nrow = 2)
+diag(Sigma) <- s^2
+
+set.seed(1)
+trigo <- data.frame(
+    Parcela = 1:10,
+    Variedad = rep(c('Exp1', 'Exp2'), each = 10),
+    rend = as.vector(round(mvrnorm(n = 10, mu = mu, Sigma= Sigma), 2))
+)
+
+write_xlsx(trigo, "./data/trigo.xlsx")
+```
+
+*Exp 1*
+
+```{r, echo = F}
+with(trigo, cat(rend[Variedad == 'Exp1'], sep = ", "))
+```
+
+*Exp 2*
+
+```{r, echo = F}
+with(trigo, cat(rend[Variedad == 'Exp2'], sep = ", "))
+```
+
+¿Cual es la variable respuesta? ¿Cuales son los tratamientos? ¿Cuantas repeticiones? ¿Existen diferencias significativas entre ambas variedades?
+
+¿Cómo lo analizamos usando **R**?
+
+##
+
+Paso 0: descargar el archivo [`trigo.xlsx`](https://entornovirtual.unl.edu.ar/pluginfile.php/429184/mod_folder/content/0/trigo.xlsx?forcedownload=1) a la carpeta `data` del proyecto. 
+
+Paso 1: importar los datos en **R** con el paquete `readxl`
+
+```{r, echo = T, eval = T}
+library(readxl)
+trigo <- read_excel("./data/trigo.xlsx")
+```
+
+Paso 2: explorar los datos
+
+```{r}
+# Cargar dplyr
+library(dplyr)
+
+# Medias de resumen
+res <- trigo %>%
+  group_by(Variedad) %>%
+  summarise(ybar = mean(rend), s = sd(rend), n = n())
+res
+```
+
+## 
+
+```{r, fig.width = 3, fig.height = 3.5}
+# cargar paquetes ggplot2 y ggthemes y definir tema
+library(ggplot2)
+library(ggthemes)
+theme_set(theme_bw())
+
+# Gráfico de caja
+ggplot(trigo, aes(x = Variedad, y = rend)) + geom_boxplot()  
+```
+
+¿Existen diferencias significativas entre ambas variedades?
+
+## 
+
+Paso 3: prueba de hipótesis
+
+$$ H_0: \mu_1 - \mu_2 = 0 \quad \text{vs} \quad H_1: \mu_1 - \mu_2 \ne 0 $$
+
+Si asumimos muestras independientes y varianzas homogéneas, bajo $H_0$ la varianza de los rendimientos sería:
+
+```{r, echo = F}
+ybar <- res$ybar
+s <- res$s
+n <- res$n
+```
+
+$$
+\begin{align}
+s^2_a &= \dfrac{(n_1-1) s^2_1 + (n_2 - 1) s_2^2}{n_1+n_2-2} = \\
+&= \dfrac{(`r n[1]-1`) `r round(s[1]^2, 2)` + (`r n[2]-1`) `r round(s[2]^2, 2)`}{`r sum(n)-2`} = `r round(mean(s^2), 2)`
+\end{align}
+$$
+
+Luego el estadístico de prueba es:
+
+$$
+\begin{align}
+t &= \dfrac{(\bar{y}_1 - \bar{y}_2) - (\mu_1 - \mu_2)}{s_a \sqrt{\dfrac{1}{n_1} + \dfrac{1}{n_2}}} = \\
+&= \dfrac{`r round(ybar[1],2)` - `r round(ybar[2],2)`}{`r round(sqrt(mean(s^2)), 2)`} = `r round((ybar[1]-ybar[2])/sqrt(mean(s^2*2/n[2])), 2)`
+\end{align}
+$$
+
+Como $|t = 1.71| \le t_{1-0.05/2, 18} = `r qt(0.975, 18)`$, entonces no se rechaza $H_0$ 
+
+##
+
+En **R** usando la función `t.test()`...
+
+```{r}
+# Prueba t
+t.test(rend ~ Variedad, trigo, paired = F, var.equal = T, alternative = 'two.sided')
+```
+
+*Conclusión*: la muestra no proporciona evidencia suficiente para rechazar $H_0$ al 5% de significancia, por lo tanto las diferencias de rendimiento entre `Exp1` y `Exp2` no son estadísticamente significativas (p = 0.1049). Con un 95% de confianza, se estima que la verdadera diferencia de rendimiento entre `Exp1` y `Exp2` está contenida en el intervalo -1.02 y 9.88 qq ha^-1^
+
+## Verificación de supuestos
+
+Este análisis supone $e_{iid} \sim N(0, \sigma)$ 
+
+### Independencia
+
+Chequear correlación de los $e_{ij}$, frecuentemente en espacio o tiempo. Una correcta aleatorización correcta disminuye las chances de obtener observaciones autocorrelacionadas
+
+### Normalidad
+
+Comparar la distribución de los $e_{ij}$ con una distribución Normal. Hay varias pruebas formales. _QQ plot_ es un gráfico de diagnóstico. 
+
+### Homogeneidad de varianzas
+
+Evaluar si las varianzas de ambos tratamientos son iguales o distintas. Es el supuesto más fuerte. Hay test formales y gráfico de diagnóstico
+
+## 
+
+Los supuestos se evalúan sobre los residuos $e_{ij} = y_{ij} - \mu_i$
+
+```{r}
+# calcular residuos
+trigo <- trigo %>% 
+  group_by(Variedad) %>% 
+  mutate(ybar = mean(rend)) %>% 
+  ungroup() %>% 
+  mutate(res = rend - ybar)
+summary(trigo$res)
+```
+
+Los residuos de las obervaciones $y_{12}$ y $y_{24}$
+
+```{r}
+trigo[c(2, 14), ]
+```
+
+##
+
+```{r, fig.height=4}
+# gráfico de residuos por grupos
+ggplot(trigo, aes(x = Variedad, y = res)) + 
+  geom_point() +
+  geom_hline(yintercept = 0)
+```
+
+En el gráfico se observa que la distribución de los residues dentro de cada tratamiento no sería homogénea.
+
+##
+
+```{r, fig.height=4}
+# QQ plot
+ggplot(trigo, aes(sample = res)) +
+  geom_qq() +
+  geom_qq_line()
+```
+
+En el gráfico se observa que la distribución de los residuos se aproxima a una distribución normal.
+
+
+## Prueba homogeneidad varianza
+
+Es un supuesto fuerte que altera los valores de significancia.
+
+$$
+H_0: \sigma^2_1 = \sigma^2_2 \\
+H_1: \sigma^2_1 \ne \sigma^2_2
+$$
+
+**Estadístico de prueba**
+
+$$
+F = \dfrac{s^2_1}{s^2_2} \sim F_{n_1-1; n_2-1}
+$$
+
+Donde por conveniencia $s^2_1 > s^2_2$
+
+**Regla decisión**
+
+- Si $F > F_{n_1-1; n_2-1; 1-\alpha/2}$, entonces se rechaza $H_0$
+- Si $F \le F_{n_1-1; n_2-1; 1-\alpha/2}$, entonces no se rechaza $H_0$
+
+
+## Ejemplo
+
+Anteriormente asumimos que la varianza de los rendimientos de ambas variedades era la misma.
+
+```{r}
+# Prueba igualdad varianza de dos poblaciones
+var.test(rend ~ Variedad, trigo)
+```
+
+En función de este resultado hay evidencia suficiente para rechazar $H_0$ (p = 0.000408), por lo tanto no se puede asumir que las varianzas son homogéneas, hay que usar la aproximación de correción Welch-Satterwaite.
+
+##
+
+```{r}
+# Prueba t para varianzas heterogéneas
+t.test(rend ~ Variedad, trigo, var.equal = F)
+```
+
+La conclusión final no cambia, las diferencias entre variedades no son estadísticamente significativas al 5% (p = 0.118).
+
+## Muestras apareadas
+
+Se puede disminuir la varianza de los errores $\sigma^2_{e}$ asignando los tratamientos a pares de unidades experimentales homogéneas (_e.g. parcelas próximas, animales mismo peso, edad, sexo, tiempos, etc._)
+
+\biskip
+
+ Par       $y_1$      $y_2$      $y_D = y_1 - y_2$
+--------- ---------- ---------- --------------------
+ 1         $y_{11}$   $y_{21}$    $y_1$              
+ 2         $y_{12}$   $y_{22}$    $y_2$              
+ $\dots$   $\dots$    $\dots$     $\dots$            
+ n         $y_{1n}$   $y_{2n}$    $y_n$              
+--------- ---------- ---------- --------------------
+\bigskip
+
+Luego, la respuesta se mide sobre la diferencia entre pares de observaciones
+
+$$
+\bar{y}_D = \dfrac{1}{n_D} \sum (y_{1j} - y_{2j}) \sim N \left(\mu_D, \dfrac{\sigma_D}{\sqrt{n_D}} \right)
+$$
+
+## Modelo lineal aditivo | modelo de efectos
+
+$$
+y_{ij} = \mu + \tau_i + \rho_j + e_{ij}  \quad \quad i = 1, 2; j = 1, \dots, n_i
+$$
+
+donde: 
+
+- $y_{ij}$ es la j-ésima observación del i-ésimo par
+
+- $\mu$ es la media general
+
+- $\tau_i$ es la desviación o efecto del i-ésimo tratamiento respecto de $\mu$, es decir $\tau_i = \mu_i - \mu$
+
+- $\rho_j$ es la desviación o efecto del j-ésimo par.
+
+- $e_{ij}$ es el error aleatorio asociado a la j-ésima observación del i-ésimo tratamiento
+modelo lineal
+
+Supuestos: $e_{ij} \sim N(0, \sigma)$
+
+## Prueba hipótesis
+
+$$
+H_0: \mu_D = 0 \\
+H_1: \mu_D \ne 0 \\
+$$
+
+**Estadístico de prueba**
+
+$$
+t = \dfrac{\bar{y}_D - \mu_D}{S_{\bar{y}_D}} \sim t_{n_D - 1}
+$$
+
+Donde $S_{\bar{y}_D}$ es un estimador muestral del desvió de la diferencia de a pares $\sigma_{\mu_D}$
+
+**Regla decisión**
+
+- Si $| t | > t_{1-\alpha/2,n_D -1}$, entonces se rechaza $H_0$
+- Si $| t | \le t_{1-\alpha/2, n_D -1}$, entonces no se rechaza $H_0$
+
+
+## Ejemplo
+
+Suponiendo que en el ejemplo anterior, el experimentador advertido por las diferencias de suelo, agrupó las parcelas en pares según la similitud de lo suelos. 
+
+```{r, fig.height=3.5}
+# Gráfico de pares
+ggplot(trigo, aes(x = Variedad, y = rend, color = factor(Parcela))) +
+  geom_point() +
+  geom_line(aes(group = Parcela))
+```
+
+Cada línea conecta los rendimientos de pareclas vecinas. Hay pares donde la diferencia es positiva o negativa.
+
+##
+
+Esto supone que las respuestas entre parcelas próximas estarían correlacionada positivamente.
+
+```{r}
+# paquete para manipular datos
+library(tidyr)
+
+# Convertir tabla para calculo correlación
+trigo2 <- trigo %>% 
+  dplyr::select(Parcela, Variedad, rend) %>% 
+  spread(., key = Variedad, value = rend)
+
+# Coeficiente de correlacion lineal
+dplyr::select(trigo2, Exp1, Exp2) %>% cor()
+```
+
+La correlación entre los rendimientos es 0.78. Es decir que las diferencias entre parcelas del mismo par son menores a las diferencias entre parcelas de pares diferentes.
+
+##
+
+En el gráfico de dispersión se puede ver la relación entre los pares de rendimientos
+
+```{r, fig.height=3.5}
+# Gráfico dispersión
+ggplot(trigo2, aes(x = Exp1, y = Exp2)) +
+  geom_point() +
+  geom_smooth(method = 'lm', se = F)
+```
+
+##
+
+Dado que las observaciones están pareadas por la parcela la variable de interés es la diferencia de rendimientos dentro de cada par. 
+
+```{r, fig.height = 2.5}
+# Diferencias de a pares
+trigo2 <- mutate(trigo2, dif = Exp1 - Exp2)
+
+ggplot(trigo2, aes(x = "", y = dif)) +
+  geom_boxplot() +
+  coord_flip()
+```
+
+¿Hay diferencias entre tratamientos? ¿En que sentido?
+
+##
+
+La prueba de hipótesis para muestras pareadas.
+
+```{r}
+t.test(rend ~ Variedad, trigo, paired = T)
+```
+
+**Conclusión**: la muestra no proporciona evidencia suficiente para rechazar $H_0$, por lo tanto las diferencias de rendimiento entre `Exp1` y `Exp2` no son estadísticamente significativas al 5% (p = 0.05868). Con un 95% de confianza, se estima que la verdadera diferencia de rendimiento entre `Exp1` y `Exp2` está contenida en el intervalo -0.20 y 9.06 qq ha^-1^.
