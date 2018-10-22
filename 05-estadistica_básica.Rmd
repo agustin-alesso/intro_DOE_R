@@ -516,9 +516,9 @@ terneros %>%
 
 Los resultados o eventos de un experimento aleatorio pueden ser **cualitativos** o **cuantitativos** (_discretos_ o _continuos_) los cuales se asocian a **variables aleatorias (VA)**
 
-<div class='centered'>
-  <img src="images/VAD.png" align="middle" style="width: 650px;"/>
-</div>
+```{r, out.width="90%"}
+knitr::include_graphics("images/VAD.png")
+```
 
 **Variables** porque sus valores no son todos iguales (hay variación) y **aleatorias** por que no se puede predecir con certeza que valor va a tomar, pero se puede asignar una **probabilidad**.
 
@@ -783,9 +783,9 @@ segments(x0 = c(-3:-1, 1:3), y0 = 0, x1 = c(-3:-1, 1:3), y1 = dnorm(c(-3:-1, 1:3
 
 La media aritmética (y cualquier estadístico muestral) que se calcula a partir de una muestra aleatoria de tamaño $n$ es una variable aleatoria y por lo tanto tiene una distribución de probabilidades asociada
 
-<div class="centerd">
-  <img src="images/medias_muestrales.svg" align="middle" style="width: 600px;"/>
-</div>
+```{r out.width="90%"}
+knitr::include_graphics("images/medias_muestrales.svg")
+```
 
 En el caso de la media, su distribución muestral tiene $\mu_{\bar{X}} = \mu$ y $\sigma_{\bar{X}} = \dfrac{\sigma}{\sqrt{n}}$
 
@@ -848,7 +848,7 @@ En este caso, al repetir el procedimiento de muestreo de 60 vacas unas 100 veces
 
 La amplitud del IC indica la **calidad o confiabilidad** de la inferencia y esta depende del nivel de confianza establecido, la variabilidad de la población original y el tamaño de la muestra.
   
-```{r, fig.height=3}
+```{r, echo = F,  fig.height=3}
 par(mfcol = c(1,3), mar = c(4, 0, 2, 0))
 
 # Distinto alpha
@@ -1373,25 +1373,9 @@ Ahora veremos como se procede en R para comparar dos medias de muestras independ
 
 Un mejorador de trigo desea comparar dos materiales experimentales (`Exp1` y `Exp2`) para determinar si sus rendimientos difieren significativamente fijando una probabilidad de cometer error tipo I de 5% ($\alpha$ = 0.05). Para ello, en un sector del campo experimental, delimita 20 parcelas de 2 x 4 m y siembra al azar en cada parcela una de las dos variedades. Luego, a cosecha, determina el rendimiento de cada parcela cortando espigas de 3 m^2^. Los rendimientos en qq ha^-1^ fueron:
 
-```{r, echo = F, eval = F}
-library(MASS)
-library(writexl)
-
-# Simular datos
-mu <- c(40, 35)
-s <- c(10, 3)
-r <- 0.9
-Sigma <- matrix(prod(r, s), ncol = 2, nrow = 2)
-diag(Sigma) <- s^2
-
-set.seed(1)
-trigo <- data.frame(
-    Parcela = 1:10,
-    Variedad = rep(c('Exp1', 'Exp2'), each = 10),
-    rend = as.vector(round(mvrnorm(n = 10, mu = mu, Sigma= Sigma), 2))
-)
-
-write_xlsx(trigo, "./data/trigo.xlsx")
+```{r, echo = F}
+library(readxl)
+trigo <- read_excel("./data/trigo.xlsx")
 ```
 
 *Exp 1*
