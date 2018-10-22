@@ -12,7 +12,7 @@
   <meta property="og:title" content="Introducción al diseño y análisis estadístico de experimentos usando R" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:image" content="images/choose_OS.png" />
+  
   <meta property="og:description" content="Material complementario para el dictado del curso <em>Diseño de Experimentos</em> de la Maestría de Cultivos Intensivos de la FCA-UNL" />
   
 
@@ -20,7 +20,7 @@
   <meta name="twitter:title" content="Introducción al diseño y análisis estadístico de experimentos usando R" />
   
   <meta name="twitter:description" content="Material complementario para el dictado del curso <em>Diseño de Experimentos</em> de la Maestría de Cultivos Intensivos de la FCA-UNL" />
-  <meta name="twitter:image" content="images/choose_OS.png" />
+  
 
 <meta name="author" content="Agustín Alesso">
 
@@ -740,16 +740,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 50 x 6
 ##    IDV       Procedencia    Fecha                Peso log_peso peso2
 ##    &lt;chr&gt;     &lt;chr&gt;          &lt;dttm&gt;              &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;
-##  1 SZ208H927 Las Glicinas   2017-04-09 00:00:00   132     4.88 17424
-##  2 TM603C884 La Rosita      2017-04-06 00:00:00   140     4.94 19600
-##  3 PO150A802 Los Corralitos 2017-04-11 00:00:00   216     5.38 46656
-##  4 NO133A023 Las Glicinas   2017-04-10 00:00:00   222     5.40 49284
-##  5 MM429A720 La Alameda     2017-04-18 00:00:00   200     5.30 40000
-##  6 SZ208H987 Las Glicinas   2017-04-10 00:00:00   140     4.94 19600
-##  7 GH738B351 Don Alberto    2017-04-20 00:00:00   154     5.04 23716
-##  8 SZ208I530 Las Glicinas   2017-04-10 00:00:00   114     4.74 12996
-##  9 PO150A837 Los Corralitos 2017-04-11 00:00:00   166     5.11 27556
-## 10 GT542A546 Las Glicinas   2017-04-09 00:00:00   180     5.19 32400
+##  1 SZ208H879 Las Glicinas   2017-04-10 00:00:00   146     4.98 21316
+##  2 NO133A000 Las Glicinas   2017-04-10 00:00:00   280     5.63 78400
+##  3 PO150A877 Los Corralitos 2017-04-11 00:00:00   274     5.61 75076
+##  4 PO150A455 Los Corralitos 2017-04-11 00:00:00   154     5.04 23716
+##  5 SZ208H816 Las Glicinas   2017-04-10 00:00:00   152     5.02 23104
+##  6 NO133A047 Las Glicinas   2017-04-09 00:00:00   180     5.19 32400
+##  7 GH738B377 Don Alberto    2017-04-20 00:00:00   222     5.40 49284
+##  8 OE528B791 La Alameda     2017-04-18 00:00:00   178     5.18 31684
+##  9 SZ208I022 Las Glicinas   2017-04-09 00:00:00   154     5.04 23716
+## 10 SZ208H826 Las Glicinas   2017-04-10 00:00:00   134     4.90 17956
 ## # ... with 40 more rows</code></pre>
 <div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" title="1"><span class="co"># Una muestra de 10 novillos de cada procedencia</span></a>
 <a class="sourceLine" id="cb149-2" title="2">muestra_procedencia &lt;-<span class="st"> </span>terneros <span class="op">%&gt;%</span></a>
@@ -760,16 +760,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # Groups:   Procedencia [7]
 ##    IDV       Procedencia Fecha                Peso log_peso peso2
 ##    &lt;chr&gt;     &lt;chr&gt;       &lt;dttm&gt;              &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;
-##  1 GH738B390 Don Alberto 2017-04-20 00:00:00   206     5.33 42436
-##  2 GH738B354 Don Alberto 2017-04-20 00:00:00   150     5.01 22500
-##  3 GH738B365 Don Alberto 2017-04-20 00:00:00   164     5.10 26896
-##  4 GH738B344 Don Alberto 2017-04-20 00:00:00   160     5.08 25600
-##  5 GH738B340 Don Alberto 2017-04-20 00:00:00   204     5.32 41616
-##  6 GH738B336 Don Alberto 2017-04-20 00:00:00   170     5.14 28900
-##  7 GH738B388 Don Alberto 2017-04-20 00:00:00   210     5.35 44100
-##  8 GH738B348 Don Alberto 2017-04-20 00:00:00   212     5.36 44944
-##  9 GH738B334 Don Alberto 2017-04-20 00:00:00   164     5.10 26896
-## 10 GH738B349 Don Alberto 2017-04-20 00:00:00   204     5.32 41616
+##  1 GH738B332 Don Alberto 2017-04-20 00:00:00   192     5.26 36864
+##  2 GH738B367 Don Alberto 2017-04-20 00:00:00   200     5.30 40000
+##  3 GH738B331 Don Alberto 2017-04-20 00:00:00   208     5.34 43264
+##  4 GH738B338 Don Alberto 2017-04-20 00:00:00   112     4.72 12544
+##  5 GH738B388 Don Alberto 2017-04-20 00:00:00   210     5.35 44100
+##  6 GH738B390 Don Alberto 2017-04-20 00:00:00   206     5.33 42436
+##  7 GH738B384 Don Alberto 2017-04-20 00:00:00   142     4.96 20164
+##  8 GH738B364 Don Alberto 2017-04-20 00:00:00   146     4.98 21316
+##  9 GH738B350 Don Alberto 2017-04-20 00:00:00   200     5.30 40000
+## 10 GH738B361 Don Alberto 2017-04-20 00:00:00   148     5.00 21904
 ## # ... with 60 more rows</code></pre>
 
 </div>
