@@ -1373,7 +1373,7 @@ Ahora veremos como se procede en R para comparar dos medias de muestras independ
 
 Un mejorador de trigo desea comparar dos materiales experimentales (`Exp1` y `Exp2`) para determinar si sus rendimientos difieren significativamente fijando una probabilidad de cometer error tipo I de 5% ($\alpha$ = 0.05). Para ello, en un sector del campo experimental, delimita 20 parcelas de 2 x 4 m y siembra al azar en cada parcela una de las dos variedades. Luego, a cosecha, determina el rendimiento de cada parcela cortando espigas de 3 m^2^. Los rendimientos en qq ha^-1^ fueron:
 
-```{r, echo = F}
+```{r, echo = F, eval = F}
 library(MASS)
 library(writexl)
 
