@@ -3,9 +3,6 @@ title: "Introducción al diseño y análisis estadístico de experimentos usando
 author: "Agustín Alesso"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
-documentclass: book
-classoption: a4paper
-bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 description: "Material complementario para el dictado del curso _Diseño de Experimentos_ de la Maestría de Cultivos Intensivos de la FCA-UNL"
