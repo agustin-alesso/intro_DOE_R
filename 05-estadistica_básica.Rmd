@@ -516,8 +516,8 @@ terneros %>%
 
 Los resultados o eventos de un experimento aleatorio pueden ser **cualitativos** o **cuantitativos** (_discretos_ o _continuos_) los cuales se asocian a **variables aleatorias (VA)**
 
-```{r, out.width="90%"}
-knitr::include_graphics("images/VAD.png")
+```{r, fig.cap = "Ejemplo variable aleatoria discreta Bernoulli", out.width="90%"}
+include_graphics("images/VAD.png")
 ```
 
 **Variables** porque sus valores no son todos iguales (hay variación) y **aleatorias** por que no se puede predecir con certeza que valor va a tomar, pero se puede asignar una **probabilidad**.
@@ -783,8 +783,8 @@ segments(x0 = c(-3:-1, 1:3), y0 = 0, x1 = c(-3:-1, 1:3), y1 = dnorm(c(-3:-1, 1:3
 
 La media aritmética (y cualquier estadístico muestral) que se calcula a partir de una muestra aleatoria de tamaño $n$ es una variable aleatoria y por lo tanto tiene una distribución de probabilidades asociada
 
-```{r out.width="90%"}
-knitr::include_graphics("images/medias_muestrales.svg")
+```{r fig.cap = "Esquema de la distribución de la media muestral", out.width="90%"}
+include_graphics("images/medias_muestrales.svg")
 ```
 
 En el caso de la media, su distribución muestral tiene $\mu_{\bar{X}} = \mu$ y $\sigma_{\bar{X}} = \dfrac{\sigma}{\sqrt{n}}$
